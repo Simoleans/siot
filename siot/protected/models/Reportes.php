@@ -101,9 +101,8 @@ class Reportes extends CActiveRecord
 		$criteria->compare('descripcion',$this->descripcion,true);
 		$criteria->compare('fecha_reporte',$this->fecha_reporte,true);
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
+		
+
 	}
 
 	/**

@@ -5,15 +5,24 @@
 			}
 ?>
 
-<div class="view col-md-12" style="background-color: #F6E7E7">
+<div class="view col-md-12">
     <table class="table table-brodered" align="center">
-      <tr width="100%" bgcolor="#E8F9E9" style="font-family: times new roman">
+    <tr class="warning" align="center">
+        <td style="font-family: georgia">
+          <b><?php echo CHtml::encode($data->getAttributeLabel('nombre_producto')); ?></b>
+        </td>     
+      </tr>
+      <tr bgcolor="#E8F9E9" style="font-family: georgia">
         <td align="center">
-          <b><?php echo CHtml::link(CHtml::encode($data->nombre_producto), 
+          <i><b><?php echo CHtml::encode(($data->nombre_producto)); ?></b></i>
+        </td>
+      </tr>
+      <tr class="info" align="center">
+        <td>
+          <i><?php echo CHtml::link(CHtml::encode('Ver Produccion'), 
               array('viewpro', 'id'=>$data->id_producto),
-              array('class' => '')); ?></b>
+              array('class' => 'btn btn-primary')); ?></i>
         </td>
       </tr>
     </table>
 </div>
-

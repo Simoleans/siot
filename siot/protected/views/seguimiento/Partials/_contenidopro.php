@@ -4,9 +4,9 @@
     $nombre = $model->nombre_producto;
     $f = array();
   //consulta para traerme la produccion por producto mediante el id sociado a la tabla reportes
-    $results = Yii::app()->db->createCommand("SELECT reportes.produccion,reportes.fecha_reporte
+    $results = Yii::app()->db->createCommand("SELECT reportes.*,reportes.fecha_reporte
     FROM reportes INNER JOIN productos ON productos.id_producto = reportes.producto_id
-    WHERE productos.id_producto = '".$id."' limit 0,6 ")->queryAll();
+    WHERE productos.id_producto = '".$id."' ORDER BY reportes.id_reporte DESC limit 6 ")->queryAll();
 
 
   foreach($results AS $result){
@@ -27,8 +27,10 @@
           </a>
         </td>
       </tr>
-    </table>    
-    <?php require_once('FiltroFecha.php');?>
+    </table>
+    <form method="POST" action="#" class="pull-right">    
+      <?php require_once('FiltroFecha.php');?>
+    </form>
   </span>
     <?php //--->SI HAY PRODUCCION PREGUNTO SI EL BOTON FUE CLICKEADO<----//
             if (isset($_POST['buscar'])) { ?>
@@ -42,7 +44,7 @@
                     $results2 = Yii::app()->db->createCommand("SELECT reportes.fecha_reporte,reportes.produccion
                     FROM reportes INNER JOIN productos ON productos.id_producto = reportes.producto_id 
                     WHERE productos.id_producto = '".$id."' AND reportes.fecha_reporte 
-                    BETWEEN '".$desde."' AND '".$hasta."'")->queryAll();
+                    BETWEEN '".$desde."' AND '".$hasta."' ORDER BY reportes.id_reporte ASC")->queryAll();
                     $comparar = count($results2); ?>
                           <!--VERIFICO SI LA QUERY TUVO RESULTADOS-->      
                           <?php if ($comparar>0) { ?>

@@ -7,12 +7,6 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<?php 
-	if (Yii::app()->user->getState('roles') == '2') 
-	{ 
-		$this->layout='//layouts/column1';
-	}
-?>
 <?php $this->widget('booster.widgets.TbDetailView', array(
     'data'=>$model,
     'attributes'=>array(),

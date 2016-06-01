@@ -2,7 +2,7 @@
 
 	<?php $empresa = CHtml::encode($data->razon_social);?> 
 		
-<!--	<?php if ($empresa != 'TODAS') { ?>
+	<?php if ($empresa != 'TODAS') { ?>
 		<hr>
 		<div class="row">
 			<div class="col-md-10">			
@@ -38,10 +38,6 @@
 		</div>
 		<br>
 
-	<?php } ?>-->
-
-	<div>
-		<h1>En Desarrollo...</h1>
-	</div>
+	<?php } ?>
 
 </div>

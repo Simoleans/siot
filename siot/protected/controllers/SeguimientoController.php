@@ -18,15 +18,13 @@ class SeguimientoController extends Controller
         
         if( Yii::app()->user->getState('roles') =='1')
         {
-             $arr =array('index','view','create','update','admin', 'delete');   // give all access to admin
+             $arr =array('SelectPlanta','indexrub','ViewRub', 'IndexPro', 'ViewPro','Index');   // give all access to admin
         }
-		else 
-			if( Yii::app()->user->getState('roles') =="2")
-                {
-                        $arr =array('indexrub','ViewRub', 'IndexPro', 'ViewPro','Index');   // give all access to staff
-                }
-                else
-                {
+		else if( Yii::app()->user->getState('roles') =="2")
+            {
+                $arr =array('indexrub','SelectPlanta','ViewRub', 'IndexPro', 'ViewPro','IndexEvp','IndexReg','Index');   // give all access to staff
+            }
+        else{
           $arr = array('');          //  no access to other user
         }
                 
@@ -45,7 +43,10 @@ class SeguimientoController extends Controller
     //funcion que me renderiza al index "Produccion por empresa"
     public function actionIndex()
 	{
-
+		if (Yii::app()->user->getState('roles') == '2') 
+		{ 
+			$this->layout='//layouts/column1';
+		}
 		$dataProvider=new CActiveDataProvider('Empresa');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
@@ -72,7 +73,11 @@ class SeguimientoController extends Controller
 	}
 	//funcion que renderiza a la vista viewpro.php recibiendo el id
 	public function actionViewPro($id)
-	{
+	{	
+		if (Yii::app()->user->getState('roles') == '2') 
+		{ 
+			$this->layout='//layouts/column1';
+		}
 		$this->render('viewpro',array(
 		'model'=>$this->loadModelProductos($id),
 		));
@@ -80,25 +85,62 @@ class SeguimientoController extends Controller
 	//funcion que me renderiza al index "indexrub"
     public function actionIndexRub()
 	{
+		if (Yii::app()->user->getState('roles') == '2') 
+		{ 
+			$this->layout='//layouts/column1';
+		}
 		$model=new Rubros;
-
 
 		$dataProvider=new CActiveDataProvider('Rubros');
 		$this->render('indexrub',array(
 			'dataProvider'=>$dataProvider,
 			'model'=>$model,
-
 		));
 		
 	}
 	//funcion que renderiza a la vista viewrub recibiendo el id
-	public function actionViewRub($id)
-	{
+	public function actionViewRub()
+	{	
+
+		if (Yii::app()->user->getState('roles') == '2') 
+		{ 
+			$this->layout='//layouts/column1';
+		}
+		$model=new Empresa;
 		$this->render('viewrub',array(
-		'model'=>$this->loadModelRubros($id),
+		'model'=>$model,
 		));
 	}
-
+	//funcion que me renderiza al index "indexevp"
+    public function actionIndexEvp()
+	{
+		if (Yii::app()->user->getState('roles') == '2') 
+		{ 
+			$this->layout='//layouts/column1';
+		}
+		$model=new Empresa;
+		$dataProvider=new CActiveDataProvider('Empresa');
+		$this->render('indexevp',array(
+			'dataProvider'=>$dataProvider,
+			'model'=>$model,
+		));
+		
+	}
+	//funcion que me renderiza al index "indexreg"
+    public function actionIndexReg()
+	{
+		if (Yii::app()->user->getState('roles') == '2') 
+		{ 
+			$this->layout='//layouts/column1';
+		}
+		$model=new Empresa;
+		$dataProvider=new CActiveDataProvider('Empresa');
+		$this->render('indexreg',array(
+			'dataProvider'=>$dataProvider,
+			'model'=>$model,
+		));
+		
+	}
 	public function loadModelRubros($id)
 	{
 		$model=Rubros::model()->findByPk($id);
@@ -114,7 +156,28 @@ class SeguimientoController extends Controller
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
-
+	protected function performAjaxValidation($model)
+	{
+		if(isset($_POST['ajax']) && $_POST['ajax']==='usuarios-form')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+	}
+	//Filtro de busqueda para planta 
+	public function actionSelectPlanta()
+	{
+		$id_uno = $_POST['Plantas']['empresa_id'];
+		$lista = Plantas::model()->findAll('empresa_id =:id_uno',array('id_uno'=>$id_uno));
+		$lista = CHtml::listData($lista,'id_planta','nombre_planta');
+		
+		echo CHtml::tag('option',array('value'=>''),'SELECCIONE PLANTA...', true);
+		
+		foreach ($lista as $valor => $planta){
+			echo CHtml::tag('option',array('value'=>$valor),CHtml::encode($planta), true );
+			
+		}
+	}
 
 
 }

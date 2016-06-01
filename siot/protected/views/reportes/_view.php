@@ -121,8 +121,10 @@
 							<td align="justify"><?php echo CHtml::encode($data->descripcion); ?></td>
 						</tr>				
 					</table>
+					
 				</div>
 			</div>
+
 		
 		</div>
 		<br>
