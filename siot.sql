@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-06-2016 a las 17:19:31
+-- Tiempo de generación: 10-06-2016 a las 15:15:19
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.5.34
 
@@ -46,8 +46,9 @@ INSERT INTO `empresa` (`id_empresa`, `razon_social`, `rif`, `direccion`, `telefo
 (1, 'VENEZOLANA DE ALIMENTOS LA CASA S.A.', 'G-20008504-5', 'Av. Sucre, entre la Policía Nacional Bolivariana y Calle Mauri, Centro de Acopio Catia, Parroquia Sucre, Municipio Libertador. Caracas – Venezuela', '(0212)8700710', 'RICARDO VILLAMIZAR', 'r.villamizar@venalcasa.gob.ve', 1, '2016-03-24 17:45:11'),
 (2, 'ARROZ DEL ALBA S.A.', 'G-20008205-4', 'BARINAS, AVENIDA CUATRICENTENARIA. EDIFICIO MPPAT. PLANTA BAJA. OFICINA S/N.', '(0251)2372535/4857', 'CAROL FIGUEREDO', '', 1, '2016-03-24 21:57:32'),
 (3, 'LEGUMINOSAS DEL ALBA S.A.', 'G-20008249-6', 'CORREDOR AGROINDUSTRIAL BELISA I, EDIF. UNIDAD DE PRODUCCION SOCIALISTA, PB, LOCAL Nº 1, ZONA INDUSTRIALL, SAN FELIPE, EDO. YARACUY.', '(0254)8860035', 'RICARDO VILLAMIZAR', 'R.VILLAMIZAR@VENALCASA.GOB.VE', 0, '2016-03-25 00:00:21'),
-(4, 'AZUCARERA LA MONTAÑA', 'v-152341j', 'prueba', '1234656', '123456', 'prueba@gmail.com', 1, '2016-05-29 22:50:56'),
-(999, 'TODAS', '', ' ', '0212-0000000', 'CGONCALVES', '', 1, '2016-03-28 02:35:06');
+(4, 'AZUCARERA LA MONTAÑA', 'V-152341G', 'PRUEBA', '1234656', '123456', 'PRUEBA@GMAIL.COM', 1, '2016-05-29 22:50:56'),
+(999, 'TODAS', '', ' ', '0212-0000000', 'CGONCALVES', '', 1, '2016-03-28 02:35:06'),
+(1001, 'FRIOSA S.A', '1234556', '', '123456', '123456', '', 1, '2016-06-01 19:06:47');
 
 -- --------------------------------------------------------
 
@@ -2419,7 +2420,8 @@ CREATE TABLE `perfiles` (
 INSERT INTO `perfiles` (`id_perfil`, `nombre_perfil`, `activo`) VALUES
 (1, 'ADMINISTRADOR', 1),
 (2, 'ADM. EMPRESA', 1),
-(3, 'ANALISTA', 1);
+(3, 'ANALISTA', 1),
+(4, 'seguimiento', 1);
 
 -- --------------------------------------------------------
 
@@ -2458,7 +2460,18 @@ INSERT INTO `plantas` (`id_planta`, `nombre_planta`, `tipo_id`, `empresa_id`, `e
 (1, 'CATIA', 1, 1, 1, 1, 10, 'PLANTA EMPAQUETADORA DE PRODUCTO TERMINADO', NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, NULL, '', '', 1),
 (2, 'UNIDAD DE PROPIEDAD SOCIAL VICTOR GREGORIO REYES ALFONZO', 1, 3, 3, 28, 99, 'PLANTA EMPAQUETADORA DE PRODUCTO TERMINADO', NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, NULL, '', '', 1),
 (3, 'CEREALES LA CRUZ', 2, 1, 2, 14, 61, 'PLANTA PROCESADORA DE MATERIA PRIMA', NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, NULL, '', '', 1),
-(4, 'probando planta', 1, 4, 4, 3, 25, 'prueba', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '', '', 1);
+(4, 'probando planta', 1, 4, 4, 3, 25, 'prueba', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '', '', 1),
+(7, 'ONOTO', 2, 999, 4, 31, 114, '', NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, NULL, '', '', 1),
+(19, 'TINAQUILLO', 1, 3, 2, 8, 42, 'PLANTA DE PRUEBA', NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 50, '', '', 1),
+(20, 'hugo chavez', 1, 2, 2, 1, 1, 'planta de prueba', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 50, '', '', 1),
+(21, 'Mampote', 3, 1001, 1, 1, 1, 'planta de prueba', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '', '', 1),
+(22, 'Chaguaramas', 2, 1001, 1, 1, 1, 'prueba', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '', '', 1),
+(23, 'La veguita', 3, 1001, 2, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '', '', 1),
+(24, 'bravo cacique', 2, 4, 1, 1, 1, 'prueba', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '', '', 1),
+(25, 'guanare', 2, 3, 1, 1, 1, 'prueba', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '', '', 1),
+(26, 'San carlos', 1, 1001, 1, 1, 1, 'prueba', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '', '', 1),
+(27, 'Juana ramirez', 2, 1001, 1, 1, 1, 'prueba', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '', '', 1),
+(28, 'la colonia', 3, 3, 1, 1, 1, 'prueba', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -2507,7 +2520,11 @@ INSERT INTO `productos` (`id_producto`, `nombre_producto`, `rubro_id`, `marca_id
 (7, 'AZUCAR MI DULCE VIDA', 7, 1, 1),
 (8, 'HARINA LA MAZORCA VIVA', 3, 1, 2),
 (9, 'HARINA LA NIñA DOñA EMILIA MARCANO', 3, 1, 1),
-(10, 'HARINA LA LEY DEL MONTE', 3, 1, 1);
+(10, 'HARINA LA LEY DEL MONTE', 3, 1, 1),
+(11, 'MAIZ AMARILLA ', 13, 1, 1),
+(12, 'MAIZ LA ORIGINAL', 13, 1, 1),
+(13, 'MAIZ UNICA', 13, 1, 1),
+(14, 'CARAOTAS', 13, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -2531,7 +2548,16 @@ INSERT INTO `producto_planta` (`id_producto_planta`, `producto_id`, `planta_id`,
 (3, 2, 2, 1),
 (4, 2, 3, 1),
 (5, 6, 4, 1),
-(6, 7, 4, 1);
+(6, 7, 4, 1),
+(7, 1, 19, 1),
+(8, 11, 28, 1),
+(9, 12, 25, 1),
+(10, 13, 28, 1),
+(11, 7, 21, 1),
+(12, 12, 22, 1),
+(13, 11, 23, 1),
+(14, 12, 26, 1),
+(15, 13, 27, 1);
 
 -- --------------------------------------------------------
 
@@ -2554,22 +2580,45 @@ CREATE TABLE `reportes` (
 --
 
 INSERT INTO `reportes` (`id_reporte`, `usuario_id`, `producto_id`, `rubro_id`, `produccion`, `descripcion`, `fecha_reporte`) VALUES
-(7, 3, 1, 1, '12200.00', '', '2016-05-14 02:35:49'),
-(8, 3, 1, 1, '18000.00', '', '2016-05-14 02:36:04'),
-(9, 3, 1, 1, '8500.00', 'CHOCARON LOS CAMIONES', '2016-05-14 02:36:34'),
-(10, 3, 1, 1, '22000.00', 'ACTIVIDAD PROLONGADA', '2016-05-15 01:04:27'),
-(11, 3, 1, 1, '26500.00', 'LLEGADA MOMENTANEA', '2016-05-15 01:05:03'),
-(12, 3, 1, 1, '2500.00', 'NINGUNA', '2016-05-19 02:10:59'),
-(13, 3, 1, 1, '14000.00', 'NINGUNA', '2016-05-20 18:26:02'),
-(14, 3, 1, 1, '18000.00', 'NINGUNA', '2016-05-20 19:40:49'),
-(16, 3, 1, 1, '28500.00', '', '2016-05-28 00:29:57'),
-(17, 3, 1, 1, '21000.00', '', '2016-05-28 00:30:18'),
-(18, 3, 1, 1, '15000.00', '', '2016-05-28 00:30:32'),
-(19, 3, 7, 7, '15200.00', 'prueba desde la bd', '2016-05-28 00:49:01'),
-(21, 5, 2, 2, '25000.00', 'PRUEBA 1', '2016-05-30 03:23:51'),
-(22, 5, 2, 2, '22000.00', 'PRUEBA 2', '2016-05-30 03:24:04'),
-(23, 5, 2, 2, '18600.00', 'PRUEBA 3', '2016-05-30 03:24:18'),
-(24, 5, 2, 2, '15200.00', 'PRUEBA 4', '2016-05-30 03:24:37');
+(7, 3, 1, 1, '122.00', '', '2016-05-14 02:35:49'),
+(8, 3, 1, 1, '180.00', '', '2016-05-14 02:36:04'),
+(9, 3, 1, 1, '85.00', 'CHOCARON LOS CAMIONES', '2016-05-14 02:36:34'),
+(10, 3, 1, 1, '220.00', 'ACTIVIDAD PROLONGADA', '2016-05-15 01:04:27'),
+(11, 3, 1, 1, '265.00', 'LLEGADA MOMENTANEA', '2016-05-15 01:05:03'),
+(12, 3, 1, 1, '250.00', 'NINGUNA', '2016-05-19 02:10:59'),
+(13, 3, 1, 1, '140.00', 'NINGUNA', '2016-05-20 18:26:02'),
+(14, 3, 1, 1, '180.00', 'NINGUNA', '2016-05-20 19:40:49'),
+(16, 3, 1, 1, '285.00', '', '2016-05-28 00:29:57'),
+(17, 3, 1, 1, '210.00', '', '2016-05-28 00:30:18'),
+(18, 3, 1, 1, '150.00', '', '2016-05-28 00:30:32'),
+(19, 3, 7, 7, '80.00', 'prueba desde la bd', '2016-05-28 00:49:01'),
+(21, 5, 2, 2, '250.00', 'PRUEBA 1', '2016-05-30 03:23:51'),
+(22, 5, 2, 2, '220.00', 'PRUEBA 2', '2016-05-30 03:24:04'),
+(23, 5, 2, 2, '186.00', 'PRUEBA 3', '2016-05-30 03:24:18'),
+(24, 5, 2, 2, '152.00', 'PRUEBA 4', '2016-05-30 03:24:37'),
+(25, 11, 7, 7, '120.00', 'PARA EL PUEBLO', '2016-06-01 20:27:38'),
+(26, 11, 7, 7, '150.00', 'SEGUNDA VEZ PARA EL PUEBLO!!!', '2016-06-01 20:28:33'),
+(27, 11, 7, 7, '185.00', 'INTERESANTE...', '2016-06-01 20:35:36'),
+(28, 11, 7, 7, '110.00', 'WUAO.. PARA EL PUEBLO', '2016-06-01 20:36:04'),
+(29, 14, 13, 13, '45.00', 'OK', '2016-06-01 20:58:00'),
+(30, 14, 13, 13, '90.00', 'OK', '2016-06-01 20:58:22'),
+(31, 14, 13, 13, '155.00', 'OK', '2016-06-01 20:58:40'),
+(32, 14, 13, 13, '120.00', 'PK', '2016-06-01 20:59:07'),
+(33, 14, 13, 13, '160.00', 'OK', '2016-06-01 20:59:21'),
+(34, 14, 13, 13, '110.00', 'OK', '2016-06-01 20:59:39'),
+(35, 13, 12, 12, '150.00', 'OK', '2016-06-01 21:00:35'),
+(36, 13, 12, 12, '180.00', 'OK', '2016-06-01 21:00:50'),
+(37, 13, 12, 12, '125.00', 'OK', '2016-06-01 21:01:04'),
+(38, 13, 12, 12, '90.00', 'OK', '2016-06-01 21:01:17'),
+(39, 13, 12, 12, '165.00', 'OK', '2016-06-01 21:01:30'),
+(40, 13, 12, 12, '210.00', 'OK', '2016-06-01 21:01:50'),
+(41, 12, 11, 11, '158.00', 'OK', '2016-06-01 21:02:35'),
+(42, 12, 11, 11, '165.00', 'OK', '2016-06-01 21:02:49'),
+(43, 12, 11, 11, '105.00', 'OK', '2016-06-01 21:03:03'),
+(44, 12, 11, 11, '85.00', 'OK', '2016-06-01 21:03:20'),
+(45, 12, 11, 11, '130.00', 'OK', '2016-06-01 21:03:42'),
+(46, 12, 11, 11, '95.00', 'OK', '2016-06-01 21:03:56'),
+(48, 14, 13, 0, '183.00', 'AQUI', '2016-06-09 17:56:10');
 
 -- --------------------------------------------------------
 
@@ -2588,13 +2637,11 @@ CREATE TABLE `rubros` (
 
 INSERT INTO `rubros` (`id_rubro`, `nombre_rubro`) VALUES
 (1, 'LECHE'),
-(2, 'CEREALES'),
+(2, 'LEGUMINOSA'),
 (3, 'HARINA'),
 (5, 'ARROZ'),
 (7, 'AZUCAR'),
-(10, 'CARAOTA'),
-(11, 'PAN'),
-(12, 'PAN');
+(13, 'MAIZ');
 
 -- --------------------------------------------------------
 
@@ -2670,12 +2717,17 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuario`, `perfil_id`, `empresa_id`, `planta_id`, `sede_id`, `gerencia_id`, `cedula`, `nombre`, `apellido`, `usuario`, `contraseña`, `fecha_nac`, `correo`, `telefono`, `activo`, `fecha_registro`) VALUES
 (1, 1, 999, 0, NULL, NULL, 17143539, 'CHRISTIAN', 'GONCALVES', 'CGONCALVES', 'e10adc3949ba59abbe56e057f20f883e', '1985-07-25', 'CGONCALVES@VENALCASA.GOB.VE', '04168321007', 1, '2016-03-30 21:29:37'),
-(2, 2, 1, 0, NULL, NULL, 18129798, 'FELIX', 'SILVA', 'fsilva', 'e10adc3949ba59abbe56e057f20f883e', '0000-00-00', 'fsilva@venalcasa.gob.ve', '', 1, '2016-03-30 21:39:35'),
 (3, 3, 1, 1, NULL, NULL, 12345678, 'DANNY', 'UGAS', 'dugas', 'e10adc3949ba59abbe56e057f20f883e', '0000-00-00', '', '', 1, '2016-03-31 16:47:13'),
 (4, 2, 3, 0, NULL, NULL, 12761308, 'ANTONIO', 'GONCALVES', 'AGONCALVES', 'e10adc3949ba59abbe56e057f20f883e', '0000-00-00', 'AGONCALVES@GMAIL.COM', '04149004057', 1, '2016-04-02 05:09:07'),
 (5, 3, 3, 2, NULL, NULL, 16031356, 'ALEJANDRA', 'MATA', 'AMATA', 'e10adc3949ba59abbe56e057f20f883e', '0000-00-00', 'AMATA@GMAIL.COM', '04168321007', 1, '2016-04-02 05:10:34'),
-(8, 3, 3, 2, 2, NULL, 20119496, 'luis', 'barrios', 'LBARRIOS', 'd21cb5fdb304605665b9730e07f95bdb', '1992-09-22', 'luisbarrios0992@gmail.com', '04162430732', 1, '2016-05-14 02:28:59'),
-(9, 1, 3, 0, NULL, NULL, NULL, '', '', '', 'D41D8CD98F00B204E9800998ECF8427E', '0000-00-00', '', '', 1, '2016-05-29 19:06:41');
+(9, 1, 3, 0, NULL, NULL, NULL, '', '', '', 'D41D8CD98F00B204E9800998ECF8427E', '0000-00-00', '', '', 1, '2016-05-29 19:06:41'),
+(10, 2, 1001, 21, NULL, NULL, NULL, 'yosbeli', 'martinez', 'ymartinez', 'e10adc3949ba59abbe56e057f20f883e', '2016-06-23', 'yosbeli@gmail.com', '123456', 1, '2016-06-01 20:01:58'),
+(11, 3, 1001, 21, NULL, NULL, NULL, 'prueba', 'prueba', 'prueba', 'e10adc3949ba59abbe56e057f20f883e', '2016-06-08', '123456', '123456', 1, '2016-06-01 20:10:12'),
+(12, 3, 1001, 23, NULL, NULL, NULL, 'prueba2', 'prueba2', 'prueba2', 'e10adc3949ba59abbe56e057f20f883e', '2016-06-02', '123456', '123456', 1, '2016-06-01 20:51:36'),
+(13, 3, 1001, 26, NULL, NULL, NULL, 'prueba3', 'prueba3', 'prueba3', 'e10adc3949ba59abbe56e057f20f883e', '2016-06-16', '123456', '123456', 1, '2016-06-01 20:54:09'),
+(14, 3, 1001, 27, NULL, NULL, NULL, 'prueba4', 'prueba4', 'prueba4', 'e10adc3949ba59abbe56e057f20f883e', '2016-06-17', '12344567898', '12345467898', 1, '2016-06-01 20:55:55'),
+(15, 4, 999, 7, NULL, NULL, 123456, 'Seguidor', 'Seguido', 'seguimiento', 'd8d9391b3c66f6e70fcfe4e41db59da0', '0000-00-00', 'seguimiento@pipi.com', '04166863625', 1, '2016-06-09 16:56:18'),
+(16, 1, 999, 7, NULL, NULL, 456987, 'prueba', 'prueba', 'qui', 'e10adc3949ba59abbe56e057f20f883e', '0000-00-00', 'francisco20990@gmail.com', '04166863625', 1, '2016-06-10 03:29:25');
 
 --
 -- Índices para tablas volcadas
@@ -2816,7 +2868,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `id_empresa` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000;
+  MODIFY `id_empresa` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
 --
 -- AUTO_INCREMENT de la tabla `estado`
 --
@@ -2856,12 +2908,12 @@ ALTER TABLE `parroquia`
 -- AUTO_INCREMENT de la tabla `perfiles`
 --
 ALTER TABLE `perfiles`
-  MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `plantas`
 --
 ALTER TABLE `plantas`
-  MODIFY `id_planta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_planta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT de la tabla `presentacion`
 --
@@ -2871,22 +2923,22 @@ ALTER TABLE `presentacion`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT de la tabla `producto_planta`
 --
 ALTER TABLE `producto_planta`
-  MODIFY `id_producto_planta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_producto_planta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `reportes`
 --
 ALTER TABLE `reportes`
-  MODIFY `id_reporte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_reporte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 --
 -- AUTO_INCREMENT de la tabla `rubros`
 --
 ALTER TABLE `rubros`
-  MODIFY `id_rubro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_rubro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT de la tabla `sede`
 --
@@ -2901,7 +2953,7 @@ ALTER TABLE `tipo_planta`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- Restricciones para tablas volcadas
 --
