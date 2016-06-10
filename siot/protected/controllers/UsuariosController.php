@@ -24,27 +24,6 @@ return array(
 * @return array access control rules
 */
 /*
-public function accessRules()
-{
-return array(
-array('allow',  // allow all users to perform 'index' and 'view' actions
-'actions'=>array('index','view','SelectPlanta'),
-'roles'=>array('1'),
-'users'=>array('@'),
-),
-array('allow', // allow authenticated user to perform 'create' and 'update' actions
-'actions'=>array('create','update'),
-'users'=>array('@'),
-),
-array('allow', // allow admin user to perform 'admin' and 'delete' actions
-'actions'=>array('admin','delete'),
-'users'=>array('@'),
-),
-array('deny',  // deny all users
-'users'=>array('*'),
-),
-);
-}
 */
 
 	public function accessRules()
@@ -118,22 +97,32 @@ $this->render('create',array(
 */
 public function actionUpdate($id)
 {
-$model=$this->loadModel($id);
+    $model=$this->loadModel($id);
 
-// Uncomment the following line if AJAX validation is needed
-// $this->performAjaxValidation($model);
+    // Uncomment the following line if AJAX validation is needed
+    // $this->performAjaxValidation($model);
 
-if(isset($_POST['Usuarios']))
-{
-$model->attributes=$_POST['Usuarios'];
-$model->contraseña=md5($model->contraseña);
-if($model->save())
-$this->redirect(array('view','id'=>$model->id_usuario));
-}
+    if(isset($_POST['Usuarios']))
+    {
+        
+    $clave =$model->contraseña;
+    $model->attributes=$_POST['Usuarios'];
+    
+    if($model->contraseña != $clave) {
+        $model->contraseña=md5($model->contraseña);
+    } 
+    else {
+        $model->password = $clave;
+    }
+    
+    if($model->save())
+    $this->redirect(array('view','id'=>$model->id_usuario));
+    }
 
-$this->render('update',array(
-'model'=>$model,
-));
+    $this->render('update',array(
+    'model'=>$model,
+    ));
+
 }
 
 /**
@@ -142,20 +131,26 @@ $this->render('update',array(
 * @param integer $id the ID of the model to be deleted
 */
 public function actionDelete($id)
-{
-if(Yii::app()->request->isPostRequest)
-{
-// we only allow deletion via POST request
-$this->loadModel($id)->delete();
+        {
+                try {
+                        
+                        
+                $this->loadModel($id)->delete();
 
-// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-if(!isset($_GET['ajax']))
-$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-}
-else
-throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
-}
-
+                // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+                if(!isset($_GET['ajax']))
+                        $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+                
+                } catch (CDbException $e) {
+                        
+                        Yii::app()->user->setFlash('error', "Existen Participantes asociados a este Evento, debe primero eliminarlos  para posteriormente eliminar el Evento");
+                                
+                        $this->render('view',array(
+                                        'model'=>$this->loadModel($id),
+                        ));
+                        
+                }
+        }
 /**
 * Lists all models.
 */

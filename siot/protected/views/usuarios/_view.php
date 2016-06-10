@@ -23,6 +23,7 @@
 			<tr class="success" align="center">
 				<td><?php echo CHtml::encode($data->perfil->nombre_perfil); ?></td>
 				<td><?php echo CHtml::encode($data->empresa->razon_social); ?></td>
+				
 			</tr>			
 		</table>
 	</div>

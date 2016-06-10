@@ -152,12 +152,4 @@ class Usuarios extends CActiveRecord
 		return md5($password);
 	}
 
-    protected function beforeSave(){
-
-        //TODOS LOS ATRIBUTOS    
-        $this->attributes = array_map('strtoupper',$this->attributes);
-
-        return parent::beforeSave();
-    }	
-	
 }

@@ -34,22 +34,9 @@
 				<?php echo $form->error($model,'producto_id'); ?>
 			</div>
 		</div>
-		<div class="col-md-1">
-			<div class="form-group" disable>	
-			
-				<?php echo $form->dropDownList(
-					$model,
-					'rubro_id',
-					CHtml::listData(ProductoPlanta::model()->findAll(array("condition"=>"planta_id =  $planta")), 'producto.id_producto', 'producto.rubro_id'),
-					array(
-						'class' => 'form-control',
-						'style' => 'display:none'
-
-					)
-				); ?>
-			</div>
-		</div>
-		<div class="col-md-4">
+	
+	
+		<div class="col-md-6">
 			<div class="form-group">	
 				<?php echo $form->labelEx($model,'produccion'); ?>
 				<?php echo $form->textField(

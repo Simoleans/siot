@@ -14,8 +14,12 @@ $this->menu=array(
 
 <span class="ez">Listado de Empresas</span>
 <div class="pd-inner">
-	<?php $this->widget('ext.yiibooster.widgets.TbListView', array(
-		'dataProvider'=>$dataProvider,
-		'itemView'=>'_view',
-	)); ?>
+	<?php
+
+	
+	 for($i=0; $i <400 ; $i++) { 
+
+	 	echo "<br>".$i;
+		
+	} ?>
 </div>

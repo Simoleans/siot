@@ -1,10 +1,3 @@
-<?php 
-		if (Yii::app()->user->getState('roles') == '2') 
-			{ 
-			$this->layout='//layouts/column1';
-			}
-?>
-
 <div class="view col-md-12">
     <table class="table table-brodered" align="center">
     <tr class="warning" align="center">
@@ -19,9 +12,10 @@
       </tr>
       <tr class="info" align="center">
         <td>
-          <i><?php echo CHtml::link(CHtml::encode('Ver Produccion'), 
+              <?php echo CHtml::link(CHtml::encode('Ver Produccion'), 
               array('viewpro', 'id'=>$data->id_producto),
-              array('class' => 'btn btn-primary')); ?></i>
+              array('class' => 'btn btn-primary')); ?>
+          
         </td>
       </tr>
     </table>

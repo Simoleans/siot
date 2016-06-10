@@ -44,3 +44,21 @@ array('label'=>'Gestionar Usuarios','url'=>array('admin'), 'visible'=>Yii::app()
 	),
 	)); ?>
 </div>
+
+<div id="statusMsg">
+<?php //'success'  'error'  'notice'            
+        $flashMessages = Yii::app()->user->getFlashes();
+        if ($flashMessages) {   
+                foreach($flashMessages as $key => $message) {
+                        echo '<h4><div class="flash-' . $key . '" style="color:red; text-align:center">' . $message . "</div></h4>\n";
+
+                          //Mensaje con un alert de script      
+                        /*echo "<script language='JavaScript'>
+                                        alert('".$message."');
+                                        </script>";*/
+                        
+                }
+        }
+                ?>
+</div>
+

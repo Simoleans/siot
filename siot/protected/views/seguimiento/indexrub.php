@@ -5,7 +5,7 @@ $this->breadcrumbs=array(
 ?>
 <span class="ez">Listado de Rubros
 	<div class="pull-right">
-	<a href="viewrub" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-edit"></i> Produccion</a>
+	<a href="viewrub" class="btn btn-primary btn-lg"><i class="fa fa-pie-chart"></i> Produccion General</a>
     </div>
 </span>
 <div class="pd-inner">

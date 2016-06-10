@@ -35,12 +35,12 @@ class Reportes extends CActiveRecord
 		return array(
 			array('producto_id', 'required'),
 			array('produccion', 'required'),
-			array('usuario_id, producto_id, rubro_id', 'numerical', 'integerOnly'=>true),
+			array('usuario_id, producto_id', 'numerical', 'integerOnly'=>true),
 			array('produccion', 'length', 'max'=>10),
 			array('descripcion', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_reporte, usuario_id, producto_id, rubro_id, produccion, descripcion, fecha_reporte', 'safe', 'on'=>'search'),
+			array('id_reporte, usuario_id, producto_id, produccion, descripcion, fecha_reporte', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -54,7 +54,6 @@ class Reportes extends CActiveRecord
 		return array(
 			'usuario' => array(self::BELONGS_TO, 'Usuarios', 'usuario_id'),
 			'producto' => array(self::BELONGS_TO, 'Productos', 'producto_id'),
-			'rubro' => array(self::BELONGS_TO, 'Rubros', 'rubro_id'),
 			'plantas' => array(self::BELONGS_TO, 'Plantas', 'nombre_planta'),
 		);
 	}
@@ -65,10 +64,9 @@ class Reportes extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_reporte' => 'Id Reporte',
+			'id_reporte' => 'ID',
 			'usuario_id' => 'Usuario',
 			'producto_id' => 'Producto',
-			'rubro_id' => 'Rubro',
 			'produccion' => 'Producción',
 			'descripcion' => 'Descripcion',
 			'fecha_reporte' => 'Fecha de Reporte',
@@ -96,13 +94,13 @@ class Reportes extends CActiveRecord
 		$criteria->compare('id_reporte',$this->id_reporte);
 		$criteria->compare('usuario_id',$this->usuario_id);
 		$criteria->compare('producto_id',$this->producto_id);
-		$criteria->compare('rubro_id',$this->rubro_id);
 		$criteria->compare('produccion',$this->produccion,true);
 		$criteria->compare('descripcion',$this->descripcion,true);
 		$criteria->compare('fecha_reporte',$this->fecha_reporte,true);
 
-		
-
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
 	}
 
 	/**

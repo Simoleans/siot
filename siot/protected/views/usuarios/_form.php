@@ -177,7 +177,7 @@
 		<div class="col-md-4">
 			<div class="form-group">	
 				<?php echo $form->labelEx($model,'contraseña'); ?>
-				<?php echo $form->textField(
+				<?php echo $form->passwordField(
 					$model,
 					'contraseña',
 					array(

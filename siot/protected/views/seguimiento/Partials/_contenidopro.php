@@ -4,7 +4,7 @@
     $nombre = $model->nombre_producto;
     $f = array();
   //consulta para traerme la produccion por producto mediante el id sociado a la tabla reportes
-    $results = Yii::app()->db->createCommand("SELECT reportes.*,reportes.fecha_reporte
+    $results = Yii::app()->db->createCommand("SELECT reportes.*
     FROM reportes INNER JOIN productos ON productos.id_producto = reportes.producto_id
     WHERE productos.id_producto = '".$id."' ORDER BY reportes.id_reporte DESC limit 6 ")->queryAll();
 
@@ -17,20 +17,18 @@
 ?>
 <!--ANTES DE MOSTRAR CUALQUIER COSA PREGUNTO SI HAY PRODUCCION--> 
 <?php if (isset($toneladas)) { ?>
-  <?php require_once('APIcalendario.php');?>
+  <?php require_once('HC/APIcalendario.php');?>
   <span class="ez col-xs-12">
     <table class="table-striped pull-left">
       <tr>
         <td>
-          <a class="btn btn-primary" href="../../indexpro"><i class="glyphicon glyphicon-th-list"></i>
-          Listado de Productos
+          <a class="btn btn-primary" href="../../indexpro"><i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i>
+          <span class="fa fa-2x">Listado de Productos</span>
           </a>
         </td>
       </tr>
     </table>
-    <form method="POST" action="#" class="pull-right">    
       <?php require_once('FiltroFecha.php');?>
-    </form>
   </span>
     <?php //--->SI HAY PRODUCCION PREGUNTO SI EL BOTON FUE CLICKEADO<----//
             if (isset($_POST['buscar'])) { ?>
@@ -53,7 +51,7 @@
                                       <?php $toneladas2 [] = intval($res['produccion']);?>
                                       <?php $FechaFiltro []= array($fecha2);?>
                                     <?php endforeach ?>
-                          <?php require_once('HCprofiltro.php');?>
+                          <?php require_once('HC/HCprofiltro.php');?>
                                 <div id='containerfiltro'></div>
                                 <div class="col-xs-12" align="center">
                                   <h4>
@@ -85,9 +83,23 @@
                         </div>
       <?php } }else { ?>          
           <!--MUESTRO EL GRAFICO PREDETERMINADO SI NO CUMPLE NINGUNA CONDICION-->
-          <?php require_once('HCpro.php'); ?>
+          <?php require_once('HC/HCpro.php'); ?>
                 <div id='container2'></div>
 <?php  } }else { ?>
 <!--MUESTRO UN MENSAJE SI EL PRODUCTO NO POSEE NINGUN REPORTE--> 
-    <?php require_once('No_existe_reporte.php');?>
+<span class="ez col-xs-12">
+    <label  class="pull-left">
+        <td>
+          <a class="btn btn-primary" href="../../indexpro"><i class="glyphicon glyphicon-th-list"></i>
+          Listado de Productos
+          </a>
+        </td>
+    </label>
+  </span>
+    <div style="padding-top:25%; padding-bottom:25%" align="center">
+      <span>
+          <i><?php echo "<h3><b style='color: #B50000;'>".$nombre."</b></h3>
+                        <h3><b>¡NO Posee Ningun Reporte de Produccion!</b></h3>";?></i>
+      </span>
+    </div>
 <?php }?> 

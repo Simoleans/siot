@@ -1,3 +1,4 @@
+
 <?php /* @var $this Controller */ ?>
 <?php //$this->beginContent('//layouts/main'); ?>
 <?php /* @var $this Controller */ ?>
@@ -17,14 +18,13 @@
 
   		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/assets/datapicker/jquery-ui.css">
   		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/assets/datapicker/jquery-ui.min.css">
+  		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/assets/FA4.6/css/font-awesome.min.css">
   		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/assets/datapicker/jquery-ui.structure.css">
   		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/assets/datapicker/jquery-ui.structure.min.css">
   		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/assets/datapicker/jquery-ui.theme.css">
   		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/assets/datapicker/jquery-ui.theme.min.css">
-  		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/datapicker/jquery-ui.js"></script>
   		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/datapicker/jquery-ui.min.js"></script>
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/Highcharts/js/highcharts.js"></script>
-		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/Highcharts/js/highcharts-3d.js"></script>
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/Highcharts/js/modules/exporting.js"></script>
 
 		
@@ -63,7 +63,7 @@
 										'items'=>array(
 											array('label'=>'Plantas', 'url'=>array('/plantas/index')),
 											array('label'=>'Tipo de Plantas', 'url'=>array('/tipoPlanta/index')),
-											array('label'=>'Plantas-Producto', 'url'=>array('/plantaProducto/index')),
+											array('label'=>'Plantas-Producto', 'url'=>array('/productoPlanta/index')),
 											array('label'=>'Metas', 'url'=>array('')),
 										),
 									),								
@@ -99,11 +99,11 @@
 									//array('label'=>'Contacto','visible'=>Yii::app()->user->isGuest, 'url'=>array('/site/contact')),
 									//array('label'=>'Iniciar Sesión', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 									//array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-									array('label'=>'Seguimiento', 'visible'=>Yii::app()->user->getState('roles') =='2',
+									array('label'=>'Seguimiento', 'visible'=>Yii::app()->user->getState('roles') =='4',
 										'items'=>array(
-											array('label'=>'Produccion Por Empresa/------!EN DESARROLLO', 'url'=>array('/seguimiento/index')),
-											array('label'=>'Produccion Por Empresa/Planta/------!EN DESARROLLO', 'url'=>array('')),
-											array('label'=>'Produccion Por Regiones/------!EN DESARROLLO', 'url'=>array('')),
+											array('label'=>'Produccion Por Empresa', 'url'=>array('/seguimiento/index')),
+											array('label'=>'Produccion Por Empresa/Planta', 'url'=>array('/seguimiento/indexevp')),
+											array('label'=>'Produccion Por Regiones', 'url'=>array('/seguimiento/indexreg')),
 											array('label'=>'Produccion Por Rubro', 'url'=>array('/seguimiento/indexrub')),
 											array('label'=>'Produccion Por Productos', 'url'=>array('/seguimiento/indexpro')),
 										),

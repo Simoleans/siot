@@ -18,14 +18,18 @@ class SeguimientoController extends Controller
         
         if( Yii::app()->user->getState('roles') =='1')
         {
-             $arr =array('SelectPlanta','indexrub','ViewRub', 'IndexPro', 'ViewPro','Index');   // give all access to admin
+             $arr =array('');   // give all access to admin
         }
 		else if( Yii::app()->user->getState('roles') =="2")
             {
-                $arr =array('indexrub','SelectPlanta','ViewRub', 'IndexPro', 'ViewPro','IndexEvp','IndexReg','Index');   // give all access to staff
+                $arr =array('');   // give all access to staff
             }
+        else if( Yii::app()->user->getState('roles') =="3")
+            {
+                $arr =array('');   // give all access to staff
+            }    
         else{
-          $arr = array('');          //  no access to other user
+          $arr =array('indexrub','SelectPlanta','ViewRub','ViewRubPlanta', 'IndexPro', 'ViewPro','IndexEvp','IndexReg','ViewProPlanta','Index');          //  no access to other user
         }
                 
         return array(                   
@@ -43,7 +47,7 @@ class SeguimientoController extends Controller
     //funcion que me renderiza al index "Produccion por empresa"
     public function actionIndex()
 	{
-		if (Yii::app()->user->getState('roles') == '2') 
+		if (Yii::app()->user->getState('roles') == '4') 
 		{ 
 			$this->layout='//layouts/column1';
 		}
@@ -66,6 +70,11 @@ class SeguimientoController extends Controller
 	//funcion que me renderiza al index "indexpro"
     public function actionIndexPro()
 	{
+		if (Yii::app()->user->getState('roles') == '4') 
+			{ 
+			$this->layout='//layouts/column1';
+			}
+
 		$dataProvider=new CActiveDataProvider('Productos');
 		$this->render('indexpro',array(
 			'dataProvider'=>$dataProvider,
@@ -74,7 +83,7 @@ class SeguimientoController extends Controller
 	//funcion que renderiza a la vista viewpro.php recibiendo el id
 	public function actionViewPro($id)
 	{	
-		if (Yii::app()->user->getState('roles') == '2') 
+		if (Yii::app()->user->getState('roles') == '4') 
 		{ 
 			$this->layout='//layouts/column1';
 		}
@@ -85,7 +94,7 @@ class SeguimientoController extends Controller
 	//funcion que me renderiza al index "indexrub"
     public function actionIndexRub()
 	{
-		if (Yii::app()->user->getState('roles') == '2') 
+		if (Yii::app()->user->getState('roles') == '4') 
 		{ 
 			$this->layout='//layouts/column1';
 		}
@@ -102,7 +111,7 @@ class SeguimientoController extends Controller
 	public function actionViewRub()
 	{	
 
-		if (Yii::app()->user->getState('roles') == '2') 
+		if (Yii::app()->user->getState('roles') == '4') 
 		{ 
 			$this->layout='//layouts/column1';
 		}
@@ -111,10 +120,21 @@ class SeguimientoController extends Controller
 		'model'=>$model,
 		));
 	}
+	//funcion que renderiza a la vista viewproplanta.php recibiendo el id
+	public function actionViewRubPlanta($id)
+	{	
+		if (Yii::app()->user->getState('roles') == '4') 
+		{ 
+			$this->layout='//layouts/column1';
+		}
+		$this->render('viewrubplanta',array(
+		'model'=>$this->loadModelRubros($id),
+		));
+	}
 	//funcion que me renderiza al index "indexevp"
     public function actionIndexEvp()
 	{
-		if (Yii::app()->user->getState('roles') == '2') 
+		if (Yii::app()->user->getState('roles') == '4') 
 		{ 
 			$this->layout='//layouts/column1';
 		}
@@ -129,16 +149,13 @@ class SeguimientoController extends Controller
 	//funcion que me renderiza al index "indexreg"
     public function actionIndexReg()
 	{
-		if (Yii::app()->user->getState('roles') == '2') 
+		if (Yii::app()->user->getState('roles') == '4') 
 		{ 
 			$this->layout='//layouts/column1';
 		}
-		$model=new Empresa;
+		$model=new Estado;
 		$dataProvider=new CActiveDataProvider('Empresa');
-		$this->render('indexreg',array(
-			'dataProvider'=>$dataProvider,
-			'model'=>$model,
-		));
+		$this->render('indexreg');
 		
 	}
 	public function loadModelRubros($id)
@@ -178,6 +195,7 @@ class SeguimientoController extends Controller
 			
 		}
 	}
+
 
 
 }

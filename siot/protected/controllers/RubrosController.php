@@ -58,7 +58,7 @@ class RubrosController extends Controller
 		else 
 			if( Yii::app()->user->getState('roles') =="2")
                 {
-                        $arr =array('index','view', 'create', 'update','admin','delete');   // give all access to staff
+                        $arr =array('index','view', 'create', 'update','admin');   // give all access to staff
                 }
                 else
                 {
