@@ -2,7 +2,6 @@
   
     $id = $model->id_producto;
     $nombre = $model->nombre_producto;
-    $f = array();
   //consulta para traerme la produccion por producto mediante el id sociado a la tabla reportes
     $results = Yii::app()->db->createCommand("SELECT reportes.*
     FROM reportes INNER JOIN productos ON productos.id_producto = reportes.producto_id

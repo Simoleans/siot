@@ -3,6 +3,6 @@
 	  <span aria-hidden='true'>&times;</span>
 	</button>
 	  <b class='badge'><?php echo $contar;?></b> 
-	  <b>Resultados Encontrados Para</b>
+	  <b>Resultados Encontrados Para Region</b>
 	  <b style='color:#A32121; text-transform: uppercase;'><?php echo "$region En $newdate del $año";?></b>!
 </div>

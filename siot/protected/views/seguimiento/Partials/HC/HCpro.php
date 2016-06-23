@@ -1,7 +1,6 @@
 <script>  
       $(function () {
         $.getJSON('<?php echo $this->createUrl("site/stats"); ?>', function (json) {
-        var datos=<?php echo preg_replace( "/\"(\d+)\"/", '$1', json_encode($f)); ?>;
         $('#container2').highcharts({
           chart: {
             type: 'column',

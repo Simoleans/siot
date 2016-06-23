@@ -105,15 +105,10 @@ public function actionUpdate($id)
     if(isset($_POST['Usuarios']))
     {
         
-    $clave =$model->contraseña;
+   
     $model->attributes=$_POST['Usuarios'];
     
-    if($model->contraseña != $clave) {
-        $model->contraseña=md5($model->contraseña);
-    } 
-    else {
-        $model->password = $clave;
-    }
+    
     
     if($model->save())
     $this->redirect(array('view','id'=>$model->id_usuario));

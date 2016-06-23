@@ -63,15 +63,14 @@ Yii::app()->db->createCommand("SELECT plantas.nombre_planta,reportes.fecha_repor
             </table>                	
 			<?php include("tabla_rub.php");?>	
 <?php }else{ ?>
-		<div style="padding-top:25%; padding-bottom:25%" align="center">
-                <span>
-                    <i>
-                       	<h2>
-                          	¡NO Se Encontro Produccion Desde <br><?php echo "<b style='color:#AE1D1D;'>$from</b>";?> AL <?php echo "<b style='color:#AE1D1D;'>$to</b>"; ?>!
-                        </h2> 
-                    </i>
-                </span>
-        </div> 
+		<div class='alert alert-danger alert-dismissible' role='alert'   align='center'>
+		    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+		    	<span aria-hidden='true'>&times;</span>
+		    </button>
+		    <b class='badge'><?php echo $comparar;?></b>
+		    Produccion desde <b style='color:#801212'><?php echo "$from";?></b>
+		    Hasta <?php echo "<b style='color:#AE1D1D;'>$to</b>"; ?>!
+		</div>
 <?php }} else {?>
 		<div style="padding-top:25%; padding-bottom:25%" align="center">
                 <span>

@@ -58,7 +58,7 @@ class EmpresaController extends Controller
 		else 
 			if( Yii::app()->user->getState('roles') =="2")
                 {
-                        $arr =array();   // give all access to staff
+                        $arr =array('');   // give all access to staff
                 }
                 else
                 {
@@ -129,13 +129,6 @@ class EmpresaController extends Controller
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_empresa));
 		}
-		if(isset($_POST['Planta']))
-		{
-			$model->attributes=$_POST['Planta'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_planta));
-		}
-
 
 		$this->render('update',array(
 			'model'=>$model,
@@ -148,26 +141,14 @@ class EmpresaController extends Controller
 	 * @param integer $id the ID of the model to be deleted
 	 */
 	public function actionDelete($id)
-        {
-                try {
-                        
-                        
-                $this->loadModel($id)->delete();
+	{
+		$this->loadModel($id)->delete();
 
-                // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-                if(!isset($_GET['ajax']))
-                        $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-                
-                } catch (CDbException $e) {
-                        
-                        Yii::app()->user->setFlash('error', "Existen Participantes asociados a este Evento, debe primero eliminarlos  para posteriormente eliminar el Evento");
-                                
-                        $this->render('view',array(
-                                        'model'=>$this->loadModel($id),
-                        ));
-                        
-                }
-        }
+		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+	}
+
 	/**
 	 * Lists all models.
 	 */
@@ -207,8 +188,6 @@ class EmpresaController extends Controller
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
-
-
 	}
 
 	/**

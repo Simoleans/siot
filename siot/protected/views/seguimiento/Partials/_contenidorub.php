@@ -52,15 +52,13 @@
 							require_once('tabla_rub_empresa.php');
 						}else{
 							require_once('Botonera_fecha.php');
-							echo "<div style='padding-top:25%; padding-bottom:25%' align='center'>
-				                    <span>
-				                        <i>
-				                       	<h2>
-				                          	¡NO Se Encontro Produccion en <b style='color:#801212'>$newdate del $año</b>!
-				                        </h2> 
-				                        </i>
-				                    </span>
-				               </div> ";
+							echo "<div class='alert alert-danger alert-dismissible' role='alert'   align='center'>
+								   <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+									  <span aria-hidden='true'>&times;</span>
+								   </button>
+								   <b class='badge'>$contar</b>
+									  Produccion en <b style='color:#801212'>$newdate del $año</b>!
+								</div>";
 					}}else{
 						echo "<div style='padding-top:25%; padding-bottom:25%' align='center'>
 				                    <span>

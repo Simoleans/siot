@@ -30,6 +30,8 @@
   		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/datapicker/jquery-ui.js"></script>
   		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/datapicker/jquery-ui.min.js"></script>
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/Highcharts/js/highcharts.js"></script>
+		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/Highcharts/js/modules/data.js"></script>
+		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/Highcharts/js/modules/drilldown.js"></script>
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/Highcharts/js/modules/exporting.js"></script>
 </head>
 
@@ -113,6 +115,22 @@
 											array('label'=>'Produccion Por Productos', 'url'=>array('/seguimiento/indexpro')),
 										),
 								),	
+								array('label'=>'Seguimiento', 'visible'=>Yii::app()->user->getState('roles') =='5',
+										'items'=>array(
+											array('label'=>'Produccion Por Empresa', 'url'=>array('/seguimiento/index')),
+											array('label'=>'Produccion Por Empresa/Planta', 'url'=>array('/seguimiento/indexevp')),
+											array('label'=>'Produccion Por Regiones', 'url'=>array('/seguimiento/indexreg')),
+											array('label'=>'Produccion Por Rubro', 'url'=>array('/seguimiento/indexrub')),
+											array('label'=>'Produccion Por Productos', 'url'=>array('/seguimiento/indexpro')),
+										),
+								),
+								array('label'=>'Base de datos', 'visible'=>Yii::app()->user->getState('roles') =='5',
+										'items'=>array(
+											array('label'=>'Administracion BD', 'url'=>array('/BD/index')),
+										
+											
+										),
+									),	
 							),
 						),
 					

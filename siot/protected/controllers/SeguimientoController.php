@@ -18,7 +18,7 @@ class SeguimientoController extends Controller
         
         if( Yii::app()->user->getState('roles') =='1')
         {
-             $arr =array('');   // give all access to admin
+             $arr =array('SelectPlanta','IndexEvp');   // give all access to admin
         }
 		else if( Yii::app()->user->getState('roles') =="2")
             {
@@ -134,11 +134,7 @@ class SeguimientoController extends Controller
 	//funcion que me renderiza al index "indexevp"
     public function actionIndexEvp()
 	{
-		if (Yii::app()->user->getState('roles') == '4') 
-		{ 
-			$this->layout='//layouts/column1';
-		}
-		$model=new Empresa;
+		$model=new plantas;
 		$dataProvider=new CActiveDataProvider('Empresa');
 		$this->render('indexevp',array(
 			'dataProvider'=>$dataProvider,

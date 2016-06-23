@@ -1,3 +1,5 @@
+<?php require_once('APIcalendario.php');?>
+
 <?php $form=$this->beginWidget('booster.widgets.TbActiveForm',array(
 	'id'=>'usuarios-form',
 	'enableAjaxValidation'=>false,
@@ -59,18 +61,18 @@
 	<div class="row">
 		<div class="col-md-4">
 			<div class="form-group">	
-				<?php echo $form->datePickerGroup($model,'fecha_nac',
+				<?php echo $form->labelEx($model,'fecha_nac'); ?>
+				<?php echo $form->textField(
+					$model,
+					'fecha_nac',
 					array(
-						'widgetOptions'=>array(
-							'options'=>array(
-							),
-							'htmlOptions'=>array(
-								'class'=>'form-control'
-							)
-						), 
-						'prepend'=>'<i class="glyphicon glyphicon-calendar"></i>'
-					)
+						'maxlength'=>255,
+						'class'=>'form-control',
+						'style'=>'text-transform:uppercase',
+						'id' => 'fecha_nac'
+						)
 				); ?>
+				<?php echo $form->error($model,'fecha_nac'); ?>
 			</div>
 		</div>
 
@@ -108,12 +110,13 @@
 
 	<div class="row">
 		<div class="col-md-4">
-			<div class="form-group">	
+			<div class="form-group">
+			<?php $query=Yii::app()->db->createCommand("SELECT * from perfiles where id_perfil<>'5'")->queryAll();?>	
 				<?php echo $form->labelEx($model,'perfil_id'); ?>
 				<?php echo $form->dropDownList(
 					$model,
 					'perfil_id',
-					CHtml::listData(Perfiles::model()->findAll(), 'id_perfil', 'nombre_perfil'),
+					CHtml::listData($query, 'id_perfil', 'nombre_perfil'),
 					array(
 						'class' => 'form-control',
 						'prompt'=>'SELECCIONE PERFIL...'

@@ -64,7 +64,7 @@ class Reportes extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_reporte' => 'ID',
+			'id_reporte' => 'Id Reporte',
 			'usuario_id' => 'Usuario',
 			'producto_id' => 'Producto',
 			'produccion' => 'Producción',

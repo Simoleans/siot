@@ -45,10 +45,9 @@
 				<div class="col-md-2">			
 					<table class="table table-striped table-bordered">
 						<tr align ="center" >
-							<td width="45%"><b><?php echo CHtml::encode($data->getAttributeLabel('id_reporte')); ?></b></td>
+							<td width="45%"><b><?php echo CHtml::encode($data->getAttributeLabel('N° Reporte')); ?></b></td>
 						</tr>
 						<tr align="center">
-					
 							<td><?php echo '000000'.CHtml::link(CHtml::encode($data->id_reporte),array('view','id'=>$data->id_reporte)); ?></td>
 						</tr>				
 					</table>

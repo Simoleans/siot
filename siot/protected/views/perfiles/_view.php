@@ -9,7 +9,9 @@
 	<?php echo CHtml::link(CHtml::encode($data->id_perfil), array('view', 'id'=>$data->id_perfil)); ?>
 	<br />
 	-->
-	
+	<?php $perfil = CHtml::encode($data->id_perfil);?> 
+		
+	<?php if ($perfil != '5') { ?>
 	<div class="view">
 		<table class="table table-bordered">
 			<tr class="warning" align="center">
@@ -21,7 +23,7 @@
 		</table>
 	</div>
 	<br>	
-
+<?php }?>
 	<!--
 	<b><?php echo CHtml::encode($data->getAttributeLabel('activo')); ?>:</b>
 	<?php echo CHtml::encode($data->activo); ?>
