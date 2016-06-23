@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-06-2016 a las 15:15:19
+-- Tiempo de generación: 23-06-2016 a las 03:02:53
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.5.34
 
@@ -2421,7 +2421,8 @@ INSERT INTO `perfiles` (`id_perfil`, `nombre_perfil`, `activo`) VALUES
 (1, 'ADMINISTRADOR', 1),
 (2, 'ADM. EMPRESA', 1),
 (3, 'ANALISTA', 1),
-(4, 'seguimiento', 1);
+(4, 'seguimiento', 1),
+(5, 'BASE', 1);
 
 -- --------------------------------------------------------
 
@@ -2727,7 +2728,8 @@ INSERT INTO `usuarios` (`id_usuario`, `perfil_id`, `empresa_id`, `planta_id`, `s
 (13, 3, 1001, 26, NULL, NULL, NULL, 'prueba3', 'prueba3', 'prueba3', 'e10adc3949ba59abbe56e057f20f883e', '2016-06-16', '123456', '123456', 1, '2016-06-01 20:54:09'),
 (14, 3, 1001, 27, NULL, NULL, NULL, 'prueba4', 'prueba4', 'prueba4', 'e10adc3949ba59abbe56e057f20f883e', '2016-06-17', '12344567898', '12345467898', 1, '2016-06-01 20:55:55'),
 (15, 4, 999, 7, NULL, NULL, 123456, 'Seguidor', 'Seguido', 'seguimiento', 'd8d9391b3c66f6e70fcfe4e41db59da0', '0000-00-00', 'seguimiento@pipi.com', '04166863625', 1, '2016-06-09 16:56:18'),
-(16, 1, 999, 7, NULL, NULL, 456987, 'prueba', 'prueba', 'qui', 'e10adc3949ba59abbe56e057f20f883e', '0000-00-00', 'francisco20990@gmail.com', '04166863625', 1, '2016-06-10 03:29:25');
+(16, 1, 999, 7, NULL, NULL, 456987, 'prueba', 'prueba', 'qui', 'e10adc3949ba59abbe56e057f20f883e', '0000-00-00', 'francisco20990@gmail.com', '04166863625', 1, '2016-06-10 03:29:25'),
+(19, 5, 999, 0, NULL, NULL, 123456, 'fran', 'her', 'base', 'e10adc3949ba59abbe56e057f20f883e', '0000-00-00', 'francisco20990@gmail.com', '04166863625', 1, '2016-06-23 01:00:21');
 
 --
 -- Índices para tablas volcadas
@@ -2908,7 +2910,7 @@ ALTER TABLE `parroquia`
 -- AUTO_INCREMENT de la tabla `perfiles`
 --
 ALTER TABLE `perfiles`
-  MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `plantas`
 --
@@ -2953,7 +2955,7 @@ ALTER TABLE `tipo_planta`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- Restricciones para tablas volcadas
 --
