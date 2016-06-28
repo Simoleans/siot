@@ -18,7 +18,7 @@ class BDController extends Controller
         
         if( Yii::app()->user->getState('roles') =='1')
         {
-             $arr =array('SelectPlanta','IndexEvp');   // give all access to admin
+             $arr =array('');   // give all access to admin
         }
 		else if( Yii::app()->user->getState('roles') =="2")
             {

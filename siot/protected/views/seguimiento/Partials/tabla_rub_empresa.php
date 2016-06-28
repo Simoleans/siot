@@ -13,7 +13,7 @@
 								    echo "<tr>";
 								    echo "<td width='45%' class='success'><b>$rubro</b></td>";
 								    echo "<td class='danger' width='10%'><i class='fa fa-exchange fa-2x success' aria-hidden='true'></i></td>";
-								    echo "<td class='success' width='45%'>$prod <b>TN</b></td>";
+								    echo "<td class='success' width='45%'>$prod <b>KG</b></td>";
 								    echo "</tr>";
 								}
 								?>
@@ -24,7 +24,8 @@
 	                    				<b style='font-size: 18px;'>TOTAL</b>
 	                    			</td>
 	                    			<td class='danger'>
-	                    				<?php echo "<b>".$suma.' Toneladas</b>';?>
+	                    				<?php echo "<b>".$suma.' Kilogramos</b>';?>
 	                    			</td>
 	                    		</tr>	
+	                    		
 	        </table>

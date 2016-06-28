@@ -22,7 +22,7 @@ class SeguimientoController extends Controller
         }
 		else if( Yii::app()->user->getState('roles') =="2")
             {
-                $arr =array('');   // give all access to staff
+                $arr =array('indexrub','SelectPlanta','ViewRub','ViewRubPlanta', 'IndexPro', 'ViewPro','IndexEvp','IndexReg','ViewProPlanta','Index');   // give all access to staff
             }
         else if( Yii::app()->user->getState('roles') =="3")
             {
@@ -50,6 +50,8 @@ class SeguimientoController extends Controller
 		if (Yii::app()->user->getState('roles') == '4') 
 		{ 
 			$this->layout='//layouts/column1';
+		}elseif(Yii::app()->user->getState('roles') == '2'){
+			$this->layout='//layouts/column1';
 		}
 		$dataProvider=new CActiveDataProvider('Empresa');
 		$this->render('index',array(
@@ -71,10 +73,11 @@ class SeguimientoController extends Controller
     public function actionIndexPro()
 	{
 		if (Yii::app()->user->getState('roles') == '4') 
-			{ 
+		{ 
 			$this->layout='//layouts/column1';
-			}
-
+		}elseif(Yii::app()->user->getState('roles') == '2'){
+			$this->layout='//layouts/column1';
+		}
 		$dataProvider=new CActiveDataProvider('Productos');
 		$this->render('indexpro',array(
 			'dataProvider'=>$dataProvider,
@@ -86,6 +89,8 @@ class SeguimientoController extends Controller
 		if (Yii::app()->user->getState('roles') == '4') 
 		{ 
 			$this->layout='//layouts/column1';
+		}elseif(Yii::app()->user->getState('roles') == '2'){
+			$this->layout='//layouts/column1';
 		}
 		$this->render('viewpro',array(
 		'model'=>$this->loadModelProductos($id),
@@ -96,6 +101,8 @@ class SeguimientoController extends Controller
 	{
 		if (Yii::app()->user->getState('roles') == '4') 
 		{ 
+			$this->layout='//layouts/column1';
+		}elseif(Yii::app()->user->getState('roles') == '2'){
 			$this->layout='//layouts/column1';
 		}
 		$model=new Rubros;
@@ -114,6 +121,8 @@ class SeguimientoController extends Controller
 		if (Yii::app()->user->getState('roles') == '4') 
 		{ 
 			$this->layout='//layouts/column1';
+		}elseif(Yii::app()->user->getState('roles') == '2'){
+			$this->layout='//layouts/column1';
 		}
 		$model=new Empresa;
 		$this->render('viewrub',array(
@@ -125,6 +134,8 @@ class SeguimientoController extends Controller
 	{	
 		if (Yii::app()->user->getState('roles') == '4') 
 		{ 
+			$this->layout='//layouts/column1';
+		}elseif(Yii::app()->user->getState('roles') == '2'){
 			$this->layout='//layouts/column1';
 		}
 		$this->render('viewrubplanta',array(
@@ -147,6 +158,8 @@ class SeguimientoController extends Controller
 	{
 		if (Yii::app()->user->getState('roles') == '4') 
 		{ 
+			$this->layout='//layouts/column1';
+		}elseif(Yii::app()->user->getState('roles') == '2'){
 			$this->layout='//layouts/column1';
 		}
 		$model=new Estado;

@@ -1,6 +1,7 @@
 <script>  
       $(function () {
         $.getJSON('<?php echo $this->createUrl("site/stats"); ?>', function (json) {
+          var datos=<?php echo preg_replace( "/\"(\d+)\"/", '$1', json_encode($f)); ?>;
         $('#container2').highcharts({
           chart: {
             type: 'column',
@@ -19,7 +20,7 @@
             }           
           },
           subtitle: {
-            text: 'Toneladas(Tn) | Fecha de Registro'
+            text: 'KILOGRAMOS(KG) | Fecha de Registro'
           },
           xAxis: {
             categories: datos,
@@ -28,13 +29,13 @@
           yAxis: {
             min: 0,
             title: {
-              text: 'TONELADAS (Tn)'
+              text: 'KILOGRAMOS (KG)'
             }
           },
           tooltip: {
             headerFormat: '<table><tr><td><span style="font-size:12px;">{point.key}</span>',
             pointFormat: '</td></tr><tr><td><b>{series.name}: </b>' +
-                         '<b style="padding:0; color:#A60404">{point.y}</b><b>Tn</b>',
+                         '<b style="padding:0; color:#A60404">{point.y}</b><b> KG</b>',
             footerFormat: '</td></tr></table>',
             shared: true,
             useHTML: true

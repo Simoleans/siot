@@ -1,4 +1,4 @@
-<div class="pd-inner" style="background-color:#FAFAFA">
+<div class="pd-inner">
 <div class="row" style="padding:15px; text-align:center;">
 				<div class="col-md-4 col-xs-12" align="center" style="font-size:18px;">
 					<table class="table table-bordered">

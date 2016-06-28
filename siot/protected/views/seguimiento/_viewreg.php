@@ -139,13 +139,19 @@ if (isset($_POST['buscar'])) {
 					require("Partials/HC/HCrubplanta.php");
 		            echo "<div id='containerrubplanta'></div>";
 		            require('Partials/tabla_region.php');
-	                
-            	}
+	            }    
+
+			}elseif ($region!="") {
+				require("Partials/Form_region.php");
+                require("Partials/Mensaje_incorrecto.php");
+                require("Partials/contenidoreg.php");
 			}
 	}else{
-		echo "<h1 align='center'>ERROR! esta vacio</h1>";
+		require("Partials/Form_region.php");
+        require("Partials/Mensaje_incorrecto.php");
+        require("Partials/contenidoreg.php");
  }}else{
-		if(isset($_POST['mes'])){
+ 			if(isset($_POST['mes'])){
 			require_once("Partials/YEAR_MES.php");
 			$region = $_POST['region'];
 
@@ -298,6 +304,11 @@ if (isset($_POST['buscar'])) {
 			      		require("Partials/Botonera_fecha_mes_ano.php");
 			       		require("Partials/Mensaje_Regiones.php");
 			       	}
+
+	       	}elseif($region!=""){
+	       		require("Partials/Form_region.php");
+                require("Partials/Mensaje_incorrecto.php");
+                require("Partials/contenidoreg.php");
 
 	       	}else{
 	       		echo "ERROR!";

@@ -66,7 +66,7 @@
 					$model,
 					'fecha_nac',
 					array(
-						'maxlength'=>255,
+						'maxlength'=>10,
 						'class'=>'form-control',
 						'style'=>'text-transform:uppercase',
 						'id' => 'fecha_nac'

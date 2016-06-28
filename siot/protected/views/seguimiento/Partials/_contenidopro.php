@@ -5,7 +5,7 @@
   //consulta para traerme la produccion por producto mediante el id sociado a la tabla reportes
     $results = Yii::app()->db->createCommand("SELECT reportes.*
     FROM reportes INNER JOIN productos ON productos.id_producto = reportes.producto_id
-    WHERE productos.id_producto = '".$id."' ORDER BY reportes.id_reporte DESC limit 6 ")->queryAll();
+    WHERE productos.id_producto = '".$id."' ORDER BY reportes.id_reporte DESC limit 9 ")->queryAll();
 
 
   foreach($results AS $result){

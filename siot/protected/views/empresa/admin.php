@@ -40,7 +40,6 @@ $('.search-form form').submit(function(){
 		'model'=>$model,
 	)); ?>
 	</div><!-- search-form -->
-
 	<?php $this->widget('booster.widgets.TbGridView',array(
 		'id'=>'empresa-grid',
 		'dataProvider'=>$model->search(),

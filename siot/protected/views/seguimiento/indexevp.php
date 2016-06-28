@@ -3,13 +3,13 @@
 $this->breadcrumbs=array(
 	'Produccion Por Empresa/Planta',
 );
-$this->menu=array(
+/*$this->menu=array(
   array('label'=>'Produccion Planta VS Meta', 'url'=>array('')),
   array('label'=>'Produccion Planta VS Historial', 'url'=>array('')),
   //array('label'=>'Produccion Mensual VS Cap. Operativa', 'url'=>array('')),
   //array('label'=>'Produccion Mensual VS Meta', 'url'=>array('')),
   
-);
+);*/
 ?>
 <span class="ez"><label class="pull-left">Empresa/Plantas</label>
 <hr>

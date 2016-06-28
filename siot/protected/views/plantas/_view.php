@@ -50,11 +50,15 @@
 				<td><?php echo CHtml::encode($data->tipo->nombre_tipo);?></td>
 			</tr>
 
-		</table>	
+			
 
-		<?php /*
-		<b><?php echo CHtml::encode($data->getAttributeLabel('cap_inst')); ?>:</b>
-		<?php echo CHtml::encode($data->cap_inst); ?>
+		<tr class="warning">
+			<td><b><?php echo CHtml::encode($data->getAttributeLabel('cap_inst')); ?>:</b></td>
+
+		
+			<td><?php echo CHtml::encode($data->cap_inst); ?></td>
+		</tr>
+</table>
 		<br />
 
 		<b><?php echo CHtml::encode($data->getAttributeLabel('cap_ope')); ?>:</b>
@@ -100,8 +104,6 @@
 		<b><?php echo CHtml::encode($data->getAttributeLabel('activo')); ?>:</b>
 		<?php echo CHtml::encode($data->activo); ?>
 		<br />
-
-		*/ ?>
 		</div>
 	<br>
 <?php } ?>

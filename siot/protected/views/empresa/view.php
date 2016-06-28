@@ -32,23 +32,32 @@ $this->menu=array(
 			'fecha_registro',
 		),
 	)); ?>
-<hr>
-
-	<?php $id_empresa = CHtml::encode($model->id_empresa);?>
-	<?php $query=Yii::app()->db->createCommand("SELECT * from plantas where empresa_id='$id_empresa'")->queryAll();?>
-	<table class="table" border="1">
-		<tr>
-	<td  style="background-color:skyblue"><center><h4>Plantas adscritas a la empresa <?php echo $model->razon_social; ?> </h4></center><td>
-</tr>
-	
-	<?php foreach ($query as $consul) { ?>
-		<tr>
-			
-	<td class="text-center"><h5><?php echo $consul['nombre_planta'];?></h5></td>
-			
+	<?php $mod = $model->id_empresa; ?>
+	<?php $query=Yii::app()->db->createCommand("SELECT nombre_planta from plantas where empresa_id = '$mod'")->queryAll();
+	 $contar = count($query);
+	?>	
+<?php if ($contar>0){?>
+<br><br>
+<table class="table table-bordered">	
+	<thead>
+		<tr class="danger" align="center">
+			<td>
+				<b style="font-size: 18px;">Plantas Adscritas</b>
+			</td>
 		</tr>
-
-
-	<?php } ?>
+	</thead>
+	<tbody>
+	<?php foreach ($query as $planta) { ?>
+		<tr align="center">
+			<td>
+				<b>
+					<?php echo $planta['nombre_planta'];?>
+				</b>
+			</td>
+		</tr>
+	<?php }?>
+	</tbody>
 </table>
+<?php }?>
 </div>
+ 

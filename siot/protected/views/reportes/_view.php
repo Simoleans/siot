@@ -30,6 +30,7 @@
 									$nombre_empresa = $id_empresa->razon_social;
 									echo $nombre_empresa;
 								?>
+								
 								<br><br>
 								<?php echo CHtml::encode($data->getAttributeLabel('planta')); ?> :
 								<?php
@@ -101,10 +102,10 @@
 				<div class="col-md-4">			
 					<table class="table table-striped table-bordered">
 						<tr align="center">
-							<td><b><?php echo CHtml::encode($data->getAttributeLabel('produccion')); ?></b></td>	
+							<td><b><?php echo CHtml::encode($data->getAttributeLabel('produccion')); ?> EN KILOGRAMOS</b></td>	
 						</tr>
 						<tr align="center">
-							<td><b><span class="required"><?php echo CHtml::encode($data->produccion); ?></span></b></td>
+							<td><b><span class="required"><?php echo CHtml::encode($data->produccion); ?> KG</span></b></td>
 						</tr>							
 					</table>
 				</div>				

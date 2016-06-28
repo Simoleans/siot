@@ -10,7 +10,6 @@ Yii::app()->db->createCommand("SELECT plantas.nombre_planta,SUM(produccion) as p
                    		 	  WHERE productos.rubro_id = '".$id."' Group BY id_planta")->queryAll();
 							$comparar = count($ok);  
 ?>
-<?php ?>
 <?php if($comparar>0) {?>
 <span class="ez">
 	<label  class="pull-left">
@@ -118,15 +117,7 @@ Yii::app()->db->createCommand("SELECT plantas.nombre_planta,SUM(produccion) as p
 		</table> 
 	</label>
 </span>
-	<div style="padding-top:25%; padding-bottom:25%" align="center">
-           <span>
-                    <i>
-                       	<h2>
-                          	¡NO Existen Plantas Asociadas al Rubro <?php echo "<b style='color:#A32121'>$nombrerub</b>";?>!
-                        </h2> 
-                    </i>
-            </span>
-    </div>	        
+<?php include("Mensaje_rub.php");?>
 <?php }?>
   
 			

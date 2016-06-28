@@ -38,7 +38,7 @@
 	
 		<div class="col-md-6">
 			<div class="form-group">	
-				<?php echo $form->labelEx($model,'produccion'); ?>
+				<?php echo $form->labelEx($model,'produccion'); ?> <strong>EN KILOGRAMOS</strong>
 				<?php echo $form->textField(
 					$model,
 					'produccion',

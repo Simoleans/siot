@@ -13,15 +13,15 @@
 <form action="#" method="POST">
 
 <div class="row">
-	<div class="col-md-3"><hr></div>
-	<div class="col-xs-12 col-md-3" align="center">
+	<div class="col-md-2"><hr></div>
+	<div class="col-xs-12 col-md-4" align="center">
 			<h5>
 				<b>
 					<?php include("FiltroEmpresa.php");?>
 				</b>
 			</h5>
 	</div>
-	<div class="col-xs-12 col-md-3" align="center">
+	<div class="col-xs-12 col-md-4" align="center">
 			<h5>
 				<b>
 					<select name="year" style="cursor:pointer; width:220px;" required="required">
@@ -51,7 +51,7 @@
 				</b>
 			</h5>
 	</div>
-	<div class="col-md-3"><hr></div>
+	<div class="col-md-2"><hr></div>
 </div>
 	<div class="" role="group" align="center">
 	    <button type="submit" class="btn btn-primary" name="mes" value="01" id="btn"><i>ENERO</I></button>

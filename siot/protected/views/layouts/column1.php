@@ -58,7 +58,7 @@
 
 											array('label'=>'Plantas', 'url'=>array('/plantas/index')),
 											array('label'=>'Tipo de Plantas', 'url'=>array('/tipoPlanta/index')),
-											array('label'=>'Metas', 'url'=>array('')),
+											//array('label'=>'Metas', 'url'=>array('')),
 										),
 									),
 									array('label'=>'Gestionar Plantas', 'visible'=>Yii::app()->user->getState('roles') =='2',
@@ -66,7 +66,7 @@
 											array('label'=>'Plantas', 'url'=>array('/plantas/index')),
 											array('label'=>'Tipo de Plantas', 'url'=>array('/tipoPlanta/index')),
 											array('label'=>'Plantas-Producto', 'url'=>array('/productoPlanta/index')),
-											array('label'=>'Metas', 'url'=>array('')),
+											//array('label'=>'Metas', 'url'=>array('')),
 										),
 									),								
 									array('label'=>'Gestionar Productos', 'visible'=>Yii::app()->user->getState('roles') =='1',
@@ -89,15 +89,15 @@
 											
 										),
 									),								
-									array('label'=>'Seguridad', 'visible'=>Yii::app()->user->getState('roles') =='1',
-										'items'=>array(
-											array('label'=>'Usuarios', 'url'=>array('/usuarios/index')),
-											array('label'=>'Menús', 'url'=>array('')),
-											array('label'=>'Perfiles', 'url'=>array('/perfiles/index')),
-											array('label'=>'Menú-Perfil', 'url'=>array('')),
-										),
+								array('label'=>'Seguridad', 'visible'=>Yii::app()->user->getState('roles') =='1',
+									'items'=>array(
+										array('label'=>'Usuarios', 'url'=>array('/usuarios/index')),
+										array('label'=>'Perfiles', 'url'=>array('/perfiles/index')),
 									),
-									array('label'=>'Reportes','visible'=>!Yii::app()->user->isGuest, 'url'=>array('/reportes/index')),
+								),	
+									array('label'=>'Reportes','visible'=>Yii::app()->user->getState('roles') =='1', 'url'=>array('/reportes/index')),
+									array('label'=>'Reportes','visible'=>Yii::app()->user->getState('roles') =='2', 'url'=>array('/reportes/index')),
+									array('label'=>'Reportes','visible'=>Yii::app()->user->getState('roles') =='3', 'url'=>array('/reportes/index')),
 									//array('label'=>'Contacto','visible'=>Yii::app()->user->isGuest, 'url'=>array('/site/contact')),
 									//array('label'=>'Iniciar Sesión', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 									//array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
@@ -111,16 +111,15 @@
 
 										),
 									),
-									array('label'=>'Seguimiento', 'visible'=>Yii::app()->user->getState('roles') =='5',
+									array('label'=>'Seguimiento', 'visible'=>Yii::app()->user->getState('roles') =='2',
 										'items'=>array(
-											array('label'=>'Produccion Por Empresa', 'url'=>array('/seguimiento/index')),
+											//array('label'=>'Produccion Por Empresa', 'url'=>array('/seguimiento/index')),
 											array('label'=>'Produccion Por Empresa/Planta', 'url'=>array('/seguimiento/indexevp')),
-											array('label'=>'Produccion Por Regiones', 'url'=>array('/seguimiento/indexreg')),
+											//array('label'=>'Produccion Por Regiones', 'url'=>array('/seguimiento/indexreg')),
 											array('label'=>'Produccion Por Rubro', 'url'=>array('/seguimiento/indexrub')),
 											array('label'=>'Produccion Por Productos', 'url'=>array('/seguimiento/indexpro')),
-
 										),
-									),	
+								),	
 									array('label'=>'Base de datos', 'visible'=>Yii::app()->user->getState('roles') =='5',
 										'items'=>array(
 											array('label'=>'Administracion BD', 'url'=>array('/BD/index')),

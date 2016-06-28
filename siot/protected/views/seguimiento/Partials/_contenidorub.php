@@ -49,7 +49,7 @@
 								    </td>
 								</tr>
 							</table>"; 
-							require_once('tabla_rub_empresa.php');
+							include('tabla_rub_empresa.php');
 						}else{
 							require_once('Botonera_fecha.php');
 							echo "<div class='alert alert-danger alert-dismissible' role='alert'   align='center'>
@@ -76,11 +76,15 @@
 																		INNER JOIN reportes ON reportes.producto_id=productos.id_producto
 																		INNER JOIN rubros ON rubros.id_rubro=productos.rubro_id  
 																		GROUP BY id_rubro")->queryAll();
-						
+					$contar = count($results1);
+						if ($contar>0) {
 				      		include("Botonera_fecha.php");
 				      		require_once('HC/HCrub.php');
 					    	echo "<div id='container2'></div>";
-					    	require_once('tabla_rub_empresa.php');
+					    	include('tabla_rub_empresa.php');
+						}else{
+							include("Mensaje_rub.php");
+						}
 
 			}
 ?>

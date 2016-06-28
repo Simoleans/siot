@@ -28,7 +28,7 @@
       showWeek: true,
       changeMonth: true,
       changeYear: true,
-      yearRange: "2015:2050",
+      yearRange: "2016:+0",
       showButtonPanel: false,
       numberOfMonths: 1,
       onClose: function( selectedDate ) {
@@ -40,7 +40,7 @@
       showWeek: true,
       changeMonth: true,
       changeYear: true,
-      yearRange: "2015:2050",
+      yearRange: "2016:+0",
       showButtonPanel: false,
       numberOfMonths: 1,
       onClose: function( selectedDate ) {

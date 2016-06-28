@@ -23,7 +23,7 @@ array('label'=>'Gestionar Reportes','url'=>array('admin'), 'visible'=>Yii::app()
 			'producto.nombre_producto',			
 			'usuario.usuario',
 
-			'produccion',
+			'produccion' ,
 			'descripcion',
 
 	),

@@ -19,30 +19,17 @@ $this->pageTitle=Yii::app()->name;
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/Region/central.jpg" alt="central">
+      <img style="width: 900px;height: 600px; padding-left: 400px;" src="<?php echo Yii::app()->request->baseUrl; ?>/images/Region/1.png" alt="central">
+      <div class="carousel-caption">
+     
+      </div>
+    </div>
+    <div class="item">
+      <img style="width: 1300px;height: 600px; padding-left: 100px;" src="<?php echo Yii::app()->request->baseUrl; ?>/images/Region/2.png" alt="llanos">
       <div class="carousel-caption">
         ...
       </div>
     </div>
-    <div class="item">
-      <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/Region/llanos.jpg" alt="llanos">
-      <div class="carousel-caption">
-        ...
-      </div>
-    </div>
-    <div class="item">
-      <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/Region/occidente.jpg" alt="occidente">
-      <div class="carousel-caption">
-        ...
-      </div>
-    </div>
-    <div class="item">
-      <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/Region/oriente.jpg" alt="oriente">
-      <div class="carousel-caption">
-        ...
-    </div>
-    </div>
-    ...
   </div>
 
   <!-- Controls -->

@@ -1,8 +1,3 @@
-<?php
-/* @var $this EmpresaController */
-/* @var $data Empresa */
-?>
-
 <div>
 
 	<!--
@@ -12,7 +7,6 @@
 	-->
 	
 	<?php $empresa = CHtml::encode($data->razon_social);?> 
-	
 		
 	<?php if ($empresa != 'TODAS') { ?>
 		<hr>
@@ -84,7 +78,7 @@
 			<div class="col-md-12">			
 				<table class="table table-striped table-bordered">
 					<tr align="center">
-						<td><b><?php echo CHtml::encode($data->getAttributeLabel('direccio')); ?></b></td>
+						<td><b><?php echo CHtml::encode($data->getAttributeLabel('direccion')); ?></b></td>
 					</tr>
 					<tr>
 						<td align="justify"><?php echo CHtml::encode($data->direccion); ?></td>
@@ -95,6 +89,15 @@
 		<br>
 	<?php } ?>
 
-	
+	<?php /*
+	<b><?php echo CHtml::encode($data->getAttributeLabel('activo')); ?>:</b>
+	<?php echo CHtml::encode($data->activo); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('fecha_registro')); ?>:</b>
+	<?php echo CHtml::encode($data->fecha_registro); ?>
+	<br />
+
+	*/ ?>
 
 </div>

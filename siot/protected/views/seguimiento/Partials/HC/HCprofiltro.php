@@ -7,7 +7,7 @@
             text: '<?php echo ($nombre); ?>',         
           },
           subtitle: {
-            text: 'Toneladas(Tn) | Fecha de Registro'
+            text: 'Kilogramos(Kg) | Fecha de Registro'
           },
           credits: { enabled: false, }, 
           exporting: { enabled: true, },
@@ -17,7 +17,7 @@
           },
           yAxis: {
             title: {
-              text: 'TONELADAS (Tn)'
+              text: 'kilogramos (Kg)'
             },
             plotLines: [{
                 value: 0,
@@ -37,7 +37,7 @@
             }
           },
           tooltip: {
-            valueSuffix: '<span style="padding:0; color:#A60404"><b>Tn</b></span>',
+            valueSuffix: '<span style="padding:0; color:#A60404"><b> KG</b></span>',
             useHTML: true
           },
           series: [{

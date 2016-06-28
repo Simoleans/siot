@@ -46,7 +46,10 @@ class Usuarios extends CActiveRecord
 			array('perfil_id, planta_id, sede_id, gerencia_id, cedula, activo', 'numerical', 'integerOnly'=>true),
 			array('empresa_id', 'length', 'max'=>10),
 			array('nombre, apellido, usuario, contraseña, correo, telefono', 'length', 'max'=>255),
-			array('fecha_nac', 'safe'),
+			array('fecha_nac', 'length', 'max'=>10),
+			array('cedula, usuario, correo', 'unique'),
+			array('correo','email'),
+			array('nombre, apellido, usuario, contraseña, correo, telefono', 'required'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id_usuario, perfil_id, empresa_id, planta_id, sede_id, gerencia_id, cedula, nombre, apellido, usuario, contraseña, fecha_nac, correo, telefono, activo, fecha_registro', 'safe', 'on'=>'search'),
@@ -55,7 +58,7 @@ class Usuarios extends CActiveRecord
 
 	/**
 	 * @return array relational rules.
-	 */
+	 */ 
 	public function relations()
 	{
 		// NOTE: you may need to adjust the relation name and the related

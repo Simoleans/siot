@@ -10,7 +10,7 @@
 				</table> 
 			</label>
 		<div class="pull-right">
-			<form method="POST" action="#">
+			<form method="POST" action="indexreg">
 				<table class="table table-striped" align="center">
 					<tr>
 						<td>

@@ -25,13 +25,13 @@
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Toneladas (Tn)'
+                    text: 'Kilogramos (KG)'
                 }
             },
             tooltip: {
                 headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
                 pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                    '<td style="padding:0;"><b>{point.y:.1f}</b><b style="color:#931919"> Tn</b></td></tr>',
+                    '<td style="padding:0;"><b>{point.y:.1f}</b><b style="color:#931919"> KG</b></td></tr>',
                 footerFormat: '</table>',
                 shared: true,
                 useHTML: true,

@@ -45,6 +45,7 @@ class Empresa extends CActiveRecord
 			array('telefono', 'length', 'max'=>20),
 			array('correo', 'length', 'max'=>50),
 			array('direccion, fecha_registro', 'safe'),
+			array('razon_social, rif, contacto, correo','unique'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id_empresa, razon_social, rif, direccion, telefono, contacto, correo, activo, fecha_registro', 'safe', 'on'=>'search'),
