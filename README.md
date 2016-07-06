@@ -1,6 +1,23 @@
 # siot
 sistema Siot Venalcasa
 
-YA ADJUNTE LA BD "SIOT.SQL" CON LA DATA DEL 28-06-2016 
+Actualizacion 06-07-2016
 
-DESCARGAR TOOOODO EL PROYECTO , JUNTO CON LA CARPETA ASSET QUE ES DONDE ESTA EL HIGHCHARTS Y LAS FUENTES
+- Validaciones 
+- Correcion de errores
+- Ya un una persona puede tener varias cuentas
+- Correccion de rutas "Tipo-planta"
+- Mas gradable a la vista
+- Se cambiaron regiones Bolivar
+- Vista en plantas los productos que estan asociados
+- vista empresa , las plantas que esta asociados
+- 
+
+En construccion:
+
+- Que automaticamente se ponga produccion 0 cuando no se registre produccion
+- Creacion de bitacora
+- Pefil del usuario
+- Usuario BD
+- Opcional (Busqueda por SEMANAS)
+- Reparar error de registro de planta/rubro , sale un mensaje que ya se registro , pero en realidad si se registro normal
