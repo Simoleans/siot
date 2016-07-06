@@ -33,7 +33,7 @@ $this->menu=array(
 		),
 	)); ?>
 	<?php $mod = $model->id_empresa; ?>
-	<?php $query=Yii::app()->db->createCommand("SELECT nombre_planta from plantas where empresa_id = '$mod'")->queryAll();
+	<?php $query=Yii::app()->db->createCommand("SELECT nombre_planta,id_planta from plantas where empresa_id = '$mod'")->queryAll();
 	 $contar = count($query);
 	?>	
 <?php if ($contar>0){?>
@@ -42,7 +42,7 @@ $this->menu=array(
 	<thead>
 		<tr class="danger" align="center">
 			<td>
-				<b style="font-size: 18px;">Plantas Adscritas</b>
+				<b style="font-size: 18px;">Plantas Adscritas a <?php echo $model->razon_social; ?></b>
 			</td>
 		</tr>
 	</thead>
@@ -50,8 +50,8 @@ $this->menu=array(
 	<?php foreach ($query as $planta) { ?>
 		<tr align="center">
 			<td>
-				<b>
-					<?php echo $planta['nombre_planta'];?>
+			<b>
+					<?php echo CHtml::link(CHtml::encode($planta['nombre_planta']),  array('../planta','view', 'id'=>($planta['id_planta']))); ?>
 				</b>
 			</td>
 		</tr>

@@ -48,7 +48,7 @@ class BDController extends Controller
                 );
     }
 
-    //funcion que me renderiza al index "Produccion por empresa"
+    //funcion que me renderiza al index "admin bd"
     public function actionIndex()
 	{
 		if (Yii::app()->user->getState('roles') == '5') 

@@ -5,13 +5,14 @@
   //consulta para traerme la produccion por producto mediante el id sociado a la tabla reportes
     $results = Yii::app()->db->createCommand("SELECT reportes.*
     FROM reportes INNER JOIN productos ON productos.id_producto = reportes.producto_id
-    WHERE productos.id_producto = '".$id."' ORDER BY reportes.id_reporte DESC limit 9 ")->queryAll();
+    WHERE productos.id_producto = '".$id."' ORDER BY reportes.id_reporte DESC limit 7 ")->queryAll();
 
 
   foreach($results AS $result){
       $toneladas [] = intval($result['produccion']);
       $fecha = date("d-m-Y | g:i a", strtotime($result['fecha_reporte']));  
-      $f []= array($fecha);
+      $des [] = $result["descripcion"];
+      $f [] = array($fecha);
     }
 ?>
 <!--ANTES DE MOSTRAR CUALQUIER COSA PREGUNTO SI HAY PRODUCCION--> 
@@ -38,7 +39,7 @@
                     $to = $_POST['to'];
                     $desde = date('Y-m-d',strtotime(str_replace('/', '-', $from)));
                     $hasta = date('Y-m-d',strtotime(str_replace('/', '-', $to)));
-                    $results2 = Yii::app()->db->createCommand("SELECT reportes.fecha_reporte,reportes.produccion
+                    $results2 = Yii::app()->db->createCommand("SELECT reportes.fecha_reporte,reportes.produccion,reportes.descripcion
                     FROM reportes INNER JOIN productos ON productos.id_producto = reportes.producto_id 
                     WHERE productos.id_producto = '".$id."' AND reportes.fecha_reporte 
                     BETWEEN '".$desde."' AND '".$hasta."' ORDER BY reportes.id_reporte ASC")->queryAll();

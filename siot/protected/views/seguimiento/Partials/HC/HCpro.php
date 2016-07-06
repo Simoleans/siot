@@ -35,7 +35,7 @@
           tooltip: {
             headerFormat: '<table><tr><td><span style="font-size:12px;">{point.key}</span>',
             pointFormat: '</td></tr><tr><td><b>{series.name}: </b>' +
-                         '<b style="padding:0; color:#A60404">{point.y}</b><b> KG</b>',
+                         '<b style="padding:0; color:#A60404"></b>',
             footerFormat: '</td></tr></table>',
             shared: true,
             useHTML: true
@@ -54,7 +54,7 @@
             }
           },
           series: [{
-            name: 'PRODUCCION',
+            name: '<?php echo join($des,",");?>',
             data: [<?php echo join($toneladas,","); ?>]
 
           }]          

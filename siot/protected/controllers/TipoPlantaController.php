@@ -82,6 +82,10 @@ class TipoPlantaController extends Controller
 	 */
 	public function actionView($id)
 	{
+		if (Yii::app()->user->getState('roles') == '1') 
+		{ 
+			$this->layout='//layouts/column1';
+		}
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
@@ -93,6 +97,10 @@ class TipoPlantaController extends Controller
 	 */
 	public function actionCreate()
 	{
+		if (Yii::app()->user->getState('roles') == '1') 
+		{ 
+			$this->layout='//layouts/column1';
+		}
 		$model=new TipoPlanta;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -117,6 +125,10 @@ class TipoPlantaController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
+		if (Yii::app()->user->getState('roles') == '1') 
+		{ 
+			$this->layout='//layouts/column1';
+		}
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
@@ -141,6 +153,10 @@ class TipoPlantaController extends Controller
 	 */
 	public function actionDelete($id)
 	{
+		if (Yii::app()->user->getState('roles') == '1') 
+		{ 
+			$this->layout='//layouts/column1';
+		}
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
@@ -153,6 +169,10 @@ class TipoPlantaController extends Controller
 	 */
 	public function actionIndex()
 	{
+		if (Yii::app()->user->getState('roles') == '1') 
+		{ 
+			$this->layout='//layouts/column1';
+		}
 		$dataProvider=new CActiveDataProvider('TipoPlanta');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,

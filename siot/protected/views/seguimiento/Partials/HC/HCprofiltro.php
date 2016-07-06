@@ -4,7 +4,7 @@
         var datos=<?php echo preg_replace( "/\"(\d+)\"/", '$1', json_encode($FechaFiltro)); ?>;
         $('#containerfiltro').highcharts({
           title: {
-            text: '<?php echo ($nombre); ?>',         
+            text: 'PRODUCCION DE <?php echo ($nombre); ?>',         
           },
           subtitle: {
             text: 'Kilogramos(Kg) | Fecha de Registro'

@@ -31,6 +31,7 @@ class Presentacion extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('nombre_presentacion', 'required'),
+			array('nombre_presentacion', 'unique'),
 			array('contenido', 'numerical', 'integerOnly'=>true),
 			array('nombre_presentacion', 'length', 'max'=>255),
 			array('medida_id', 'length', 'max'=>10),

@@ -34,6 +34,7 @@ class Productos extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('nombre_producto', 'required'),
+			array('nombre_producto', 'unique'),
 			array('rubro_id', 'required'),
 			array('marca_id', 'required'),
 			array('presentacion_id', 'required'),

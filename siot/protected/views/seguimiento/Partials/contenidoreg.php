@@ -9,7 +9,7 @@
 						</tr>
 						<tr align="center" style="background-color:#F1F1F1;">
 							<td>
-								<b>ANZOATEGUI<br> DELTA AMACURO<br> MONAGAS<br> NUEVA ESPARTA<br> SUCRE</b>
+								<b>ANZOATEGUI<br> DELTA AMACURO<br> MONAGAS<br> NUEVA ESPARTA<br> SUCRE<br> BOLIVAR</b>
 							</td>
 						</tr>
 					</table>
@@ -85,7 +85,7 @@
 						</tr>
 						<tr align="center" style="background-color:#F1F1F1;">
 							<td>
-								<b>BOLIVAR<br>AMAZONAS</b>
+								<b>AMAZONAS</b>
 							</td>
 						</tr>
 					</table>

@@ -82,6 +82,10 @@ class PlantasController extends Controller
 	 */
 	public function actionView($id)
 	{
+		if (Yii::app()->user->getState('roles') == '1') 
+		{ 
+			$this->layout='//layouts/column1';
+		}
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
@@ -153,6 +157,10 @@ class PlantasController extends Controller
 	 */
 	public function actionIndex()
 	{
+		if (Yii::app()->user->getState('roles') == '1') 
+		{ 
+			$this->layout='//layouts/column1';
+		}
 		$dataProvider=new CActiveDataProvider('Plantas');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,

@@ -83,6 +83,10 @@ array('deny',  // deny all users
 */
 public function actionView($id)
 {
+    if (Yii::app()->user->getState('roles') == '1') 
+        { 
+            $this->layout='//layouts/column1';
+        }
 $this->render('view',array(
 'model'=>$this->loadModel($id),
 ));
@@ -94,6 +98,10 @@ $this->render('view',array(
 */
 public function actionCreate()
 {
+    if (Yii::app()->user->getState('roles') == '1') 
+        { 
+            $this->layout='//layouts/column1';
+        }
 $model=new ProductoPlanta;
 
 // Uncomment the following line if AJAX validation is needed
@@ -160,6 +168,10 @@ throw new CHttpException(400,'Invalid request. Please do not repeat this request
 */
 public function actionIndex()
 {
+    if (Yii::app()->user->getState('roles') == '1') 
+        { 
+            $this->layout='//layouts/column1';
+        }
 $dataProvider=new CActiveDataProvider('ProductoPlanta');
 $this->render('index',array(
 'dataProvider'=>$dataProvider,

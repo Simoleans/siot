@@ -26,6 +26,7 @@ class Rubros extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('nombre_rubro', 'required'),
+			array('nombre_rubro', 'unique'),
 			array('nombre_rubro', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

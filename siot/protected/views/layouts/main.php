@@ -145,7 +145,7 @@
 									'label' => Yii::app()->user->name, 'visible'=>!Yii::app()->user->isGuest,
 									'url' => '#',
 									'items' => array(
-										array('label' => 'Perfil', 'url' => '#'),
+										array('label' => 'Perfil', 'url' => array('/perfil/index')),
 										'---',
 										array('label'=>'Salir', 'url'=>array('/site/logout')),
 										

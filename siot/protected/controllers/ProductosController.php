@@ -83,6 +83,10 @@ class ProductosController extends Controller
 	 */
 	public function actionView($id)
 	{
+		if (Yii::app()->user->getState('roles') == '1') 
+		{ 
+			$this->layout='//layouts/column1';
+		}
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
@@ -94,6 +98,10 @@ class ProductosController extends Controller
 	 */
 	public function actionCreate()
 	{
+		if (Yii::app()->user->getState('roles') == '1') 
+		{ 
+			$this->layout='//layouts/column1';
+		}
 		$model=new Productos;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -154,6 +162,10 @@ class ProductosController extends Controller
 	 */
 	public function actionIndex()
 	{
+		if (Yii::app()->user->getState('roles') == '1') 
+		{ 
+			$this->layout='//layouts/column1';
+		}
 		$dataProvider=new CActiveDataProvider('Productos');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,

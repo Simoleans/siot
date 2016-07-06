@@ -11,11 +11,6 @@
 	//echo $id_empresa;
 ?>
 
-<?php
-	if (($empresa == $id_empresa) or ($empresa == 999)) {
-?>	
-
-
 		<?php if ($empresa == 999) { ?>
 		<b>
 		<?php echo CHtml::encode($data->getAttributeLabel('empresa_id')); ?>:</b>
@@ -50,60 +45,64 @@
 				<td><?php echo CHtml::encode($data->tipo->nombre_tipo);?></td>
 			</tr>
 
+
 			
 
 		<tr class="warning">
 			<td><b><?php echo CHtml::encode($data->getAttributeLabel('cap_inst')); ?>:</b></td>
-
-		
 			<td><?php echo CHtml::encode($data->cap_inst); ?></td>
 		</tr>
-</table>
-		<br />
+		<tr class="success">
+			<td><b><?php echo CHtml::encode($data->getAttributeLabel('cap_ope')); ?>:</b></td>
+			<td><?php echo CHtml::encode($data->cap_ope); ?></td>
+		</tr>
+		
+		<tr class="warning">
+				<td><b><?php echo CHtml::encode($data->getAttributeLabel('cap_alm')); ?>:</b></td>
+				<td><?php echo CHtml::encode($data->cap_alm); ?></td>
+		</tr>
 
-		<b><?php echo CHtml::encode($data->getAttributeLabel('cap_ope')); ?>:</b>
-		<?php echo CHtml::encode($data->cap_ope); ?>
-		<br />
+		<tr class="success">
+			<td><b><?php echo CHtml::encode($data->getAttributeLabel('alm_seco')); ?>:</b></td>
+			<td><?php echo CHtml::encode($data->alm_seco); ?></td>
+		</tr>
+	
+	<tr class="warning">
+			<td><b><?php echo CHtml::encode($data->getAttributeLabel('alm_frio')); ?>:</b></td>
+			<td><?php echo CHtml::encode($data->alm_frio); ?></td>
+    </tr>
+  
+    <tr class="success">
+		<td><b><?php echo CHtml::encode($data->getAttributeLabel('alm_silo')); ?>:</b></td>
+		<td><?php echo CHtml::encode($data->alm_silo); ?></td>
+	</tr>
+		<tr class="warning">
+			<td><b><?php echo CHtml::encode($data->getAttributeLabel('cant_lineas')); ?>:</b></td>
+			<td><?php echo CHtml::encode($data->cant_lineas); ?></td>
+		</tr>
+ 
 
-		<b><?php echo CHtml::encode($data->getAttributeLabel('cap_alm')); ?>:</b>
-		<?php echo CHtml::encode($data->cap_alm); ?>
-		<br />
+  	<tr class="success">
+		<td><b><?php echo CHtml::encode($data->getAttributeLabel('estatus_lineas')); ?>:</b></td>
+		<td><?php echo CHtml::encode($data->estatus_lineas); ?></td>
+    </tr>
+    <tr class="warning">
+		<td><b><?php echo CHtml::encode($data->getAttributeLabel('cant_empleados')); ?>:</b></td>
+		<td><?php echo CHtml::encode($data->cant_empleados);  echo " Empleados" ?></td>
+	</tr>
+<tr class="success">
+		<td><b><?php echo CHtml::encode($data->getAttributeLabel('longitud')); ?>:</b></td>
+		<td><?php echo CHtml::encode($data->longitud); ?></td>
+</tr>
+  <tr class="warning">
+		<td><b><?php echo CHtml::encode($data->getAttributeLabel('latitud')); ?>:</b></td>
+		<td><?php echo CHtml::encode($data->latitud); ?></td>
+</tr>
 
-		<b><?php echo CHtml::encode($data->getAttributeLabel('alm_seco')); ?>:</b>
-		<?php echo CHtml::encode($data->alm_seco); ?>
-		<br />
-
-		<b><?php echo CHtml::encode($data->getAttributeLabel('alm_frio')); ?>:</b>
-		<?php echo CHtml::encode($data->alm_frio); ?>
-		<br />
-
-		<b><?php echo CHtml::encode($data->getAttributeLabel('alm_silo')); ?>:</b>
-		<?php echo CHtml::encode($data->alm_silo); ?>
-		<br />
-
-		<b><?php echo CHtml::encode($data->getAttributeLabel('cant_lineas')); ?>:</b>
-		<?php echo CHtml::encode($data->cant_lineas); ?>
-		<br />
-
-		<b><?php echo CHtml::encode($data->getAttributeLabel('estatus_lineas')); ?>:</b>
-		<?php echo CHtml::encode($data->estatus_lineas); ?>
-		<br />
-
-		<b><?php echo CHtml::encode($data->getAttributeLabel('cant_empleados')); ?>:</b>
-		<?php echo CHtml::encode($data->cant_empleados); ?>
-		<br />
-
-		<b><?php echo CHtml::encode($data->getAttributeLabel('longitud')); ?>:</b>
-		<?php echo CHtml::encode($data->longitud); ?>
-		<br />
-
-		<b><?php echo CHtml::encode($data->getAttributeLabel('latitud')); ?>:</b>
-		<?php echo CHtml::encode($data->latitud); ?>
-		<br />
-
-		<b><?php echo CHtml::encode($data->getAttributeLabel('activo')); ?>:</b>
-		<?php echo CHtml::encode($data->activo); ?>
-		<br />
+<tr class="success">
+		<td><b><?php echo CHtml::encode($data->getAttributeLabel('activo')); ?>:</b></td>
+		<td><?php echo CHtml::encode($data->activo); ?></td>
+</tr>
+		 </table>
 		</div>
 	<br>
-<?php } ?>

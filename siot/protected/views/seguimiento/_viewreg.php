@@ -103,7 +103,7 @@ if (isset($_POST['buscar'])) {
 			    INNER JOIN plantas ON plantas.id_planta=producto_planta.planta_id 
 			    INNER JOIN empresa ON empresa.id_empresa=plantas.empresa_id
 			    INNER JOIN estado ON estado.id_estado=plantas.estado_id
-			    WHERE estado.estado IN ('BOLIVAR','AMAZONAS') GROUP BY id_planta")->queryAll();
+			    WHERE estado.estado IN ('AMAZONAS') GROUP BY id_planta")->queryAll();
 			    $contar = count($results1);
                 if($contar==0){ 
                 	require("Partials/Form_region.php");
@@ -127,7 +127,7 @@ if (isset($_POST['buscar'])) {
 			    INNER JOIN empresa ON empresa.id_empresa=plantas.empresa_id
 			    INNER JOIN estado ON estado.id_estado=plantas.estado_id
 			    WHERE estado.estado 
-			    IN ('ANZOATEGUI','DELTA AMACURO','MONAGAS','NUEVA ESPARTA','SUCRE') GROUP BY id_planta")->queryAll();
+			    IN ('ANZOATEGUI','DELTA AMACURO','MONAGAS','NUEVA ESPARTA','SUCRE','BOLIVAR') GROUP BY id_planta")->queryAll();
 			    $contar = count($results1);
                 if($contar==0){ 
                 	require("Partials/Form_region.php");
@@ -265,7 +265,7 @@ if (isset($_POST['buscar'])) {
 			    INNER JOIN empresa ON empresa.id_empresa=plantas.empresa_id
 			    INNER JOIN estado ON estado.id_estado=plantas.estado_id
 			    WHERE estado.estado 
-			    IN ('BOLIVAR','AMAZONAS')
+			    IN ('AMAZONAS')
 			    AND reportes.fecha_reporte BETWEEN '".$desde."' AND '".$hasta."' GROUP BY id_planta")->queryAll();
 			    $contar = count($results1);
 			    	if($contar>0){
@@ -290,7 +290,7 @@ if (isset($_POST['buscar'])) {
 			    INNER JOIN empresa ON empresa.id_empresa=plantas.empresa_id
 			    INNER JOIN estado ON estado.id_estado=plantas.estado_id
 			    WHERE estado.estado 
-			    IN ('ANZOATEGUI','DELTA AMACURO','MONAGAS','NUEVA ESPARTA','SUCRE')
+			    IN ('ANZOATEGUI','DELTA AMACURO','MONAGAS','NUEVA ESPARTA','SUCRE','BOLIVAR')
 			    AND reportes.fecha_reporte BETWEEN '".$desde."' AND '".$hasta."' GROUP BY id_planta")->queryAll();
 			    $contar = count($results1);
 			    	if($contar>0){

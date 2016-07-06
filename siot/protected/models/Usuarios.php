@@ -47,7 +47,7 @@ class Usuarios extends CActiveRecord
 			array('empresa_id', 'length', 'max'=>10),
 			array('nombre, apellido, usuario, contraseña, correo, telefono', 'length', 'max'=>255),
 			array('fecha_nac', 'length', 'max'=>10),
-			array('cedula, usuario, correo', 'unique'),
+			array('correo', 'unique'),
 			array('correo','email'),
 			array('nombre, apellido, usuario, contraseña, correo, telefono', 'required'),
 			// The following rule is used by search().

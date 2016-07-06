@@ -36,7 +36,7 @@
 		</div>
 	
 	
-		<div class="col-md-6">
+		<div class="col-md-5">
 			<div class="form-group">	
 				<?php echo $form->labelEx($model,'produccion'); ?> <strong>EN KILOGRAMOS</strong>
 				<?php echo $form->textField(
@@ -46,7 +46,7 @@
 						'maxlength'=>10,
 						'class'=>'form-control',
 						)
-				); ?>
+				); ?> <span><h6><span class="required">*</span>Si la produccion es 0, coloque la observacion y deje este campo vacio</h6></span>
 				<?php echo $form->error($model,'produccion'); ?>
 			</div>
 		</div>
@@ -55,7 +55,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="form-group">	
-				<?php echo $form->labelEx($model,'Observación'); ?>
+				<?php echo $form->labelEx($model,'Observacion'); ?>
 				<?php echo $form->textArea(
 					$model,
 					'descripcion',
