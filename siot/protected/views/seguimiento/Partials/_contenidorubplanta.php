@@ -23,7 +23,6 @@ Yii::app()->db->createCommand("SELECT plantas.nombre_planta,SUM(produccion) as p
 		    </tr>
 		</table> 
 	</label>
-	<?php require_once("HC/APIcalendario.php");?>
 	<?php require_once("FiltroFecha.php");?>
 </span>
       

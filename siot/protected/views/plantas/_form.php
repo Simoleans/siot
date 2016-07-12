@@ -9,6 +9,14 @@
 	'enableAjaxValidation'=>true,
 )); ?>
 
+<?php //'success'  'error'  'notice'            
+        $flashMessages = Yii::app()->user->getFlashes();
+        if ($flashMessages) {   
+                foreach($flashMessages as $key => $message) {
+                        echo '<h3><div class="flash-' . $key . '" style="color:red; text-align:center">' . $message . "</div></h3>\n";                        
+                }
+        }
+?>
 	<p class="note">Campos con <span class="required">*</span> son requeridos.</p>
 	<br>
 	<?php echo $form->errorSummary($model); ?>	

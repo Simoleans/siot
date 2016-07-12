@@ -1,6 +1,6 @@
 
 					<?php 
-							$lista1 = Yii::app()->db->createCommand("SELECT id_empresa,razon_social FROM Empresa Where id_empresa<>999")->queryAll();
+							$lista1 = Yii::app()->db->createCommand("SELECT id_empresa,razon_social FROM empresa Where id_empresa<>999")->queryAll();
 							?>
 							<select name="empresa[]" style="cursor:pointer; width:220px;" required>
 								<option value="">SELECCIONE EMPRESA...</option>

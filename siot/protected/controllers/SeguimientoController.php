@@ -145,7 +145,7 @@ class SeguimientoController extends Controller
 	//funcion que me renderiza al index "indexevp"
     public function actionIndexEvp()
 	{
-		$model=new plantas;
+		$model=new Plantas;
 		$dataProvider=new CActiveDataProvider('Empresa');
 		$this->render('indexevp',array(
 			'dataProvider'=>$dataProvider,

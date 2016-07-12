@@ -132,10 +132,18 @@ throw new CHttpException(400,'Invalid request. Please do not repeat this request
 */
 public function actionIndex()
 {
+    
+
+
     $dataProvider=new CActiveDataProvider('Reportes');
+
+  
+     
     $this->render('index',array(
-    'dataProvider'=>$dataProvider,
-    ));
+                
+                "dataProvider"=>$dataProvider,
+               
+            ));
 }
 
 /**

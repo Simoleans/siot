@@ -52,8 +52,28 @@ class PerfilController extends Controller
     }
 
 	public function actionIndex()
-	{
-		$this->render('index');
-	}
+    {
 
+        if (Yii::app()->user->getState('roles') == '4') 
+        { 
+            $this->layout='//layouts/column1';
+        }
+             
+    $criteria=new CDbCriteria();
+    $count=Reportes::model()->count($criteria);
+     
+    //Le pasamos el total de registros de la tabla
+    $pages=new CPagination($count);
+     
+    // Resultados por página
+    $pages->pageSize=1;
+ 
+    $pages->applyLimit($criteria);
+    $getUsuarios=Reportes::model()->findAll($criteria);
+     
+    $this->render('index',array(
+                "usuarios"=>$getUsuarios,
+                "pages"=>$pages
+            ));
+}
 }

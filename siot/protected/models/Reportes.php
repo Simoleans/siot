@@ -38,6 +38,7 @@ class Reportes extends CActiveRecord
 			array('usuario_id, producto_id', 'numerical', 'integerOnly'=>true),
 			array('produccion', 'length', 'max'=>10),
 			array('descripcion', 'safe'),
+			array('fecha_reporte','safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id_reporte, usuario_id, producto_id, produccion, descripcion, fecha_reporte', 'safe', 'on'=>'search'),
@@ -101,6 +102,8 @@ class Reportes extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+
+		
 	}
 
 	/**
@@ -120,6 +123,41 @@ class Reportes extends CActiveRecord
         $this->attributes = array_map('strtoupper',$this->attributes);
 
         return parent::beforeSave();
-    }		
+    }	
+
+    public function countRegistros(){
+    $count=$this->connection->createCommand()
+           ->select("count(id_reporte) as 'count' ")->from('reportes')->queryAll();
+        return $count[0]["count"];
+}
+     
+public function getReportes($inicio,$cantidad){
+     
+    $this->getReportes=$this->connection
+            ->createCommand("SELECT * FROM reportes LIMIT $inicio,$cantidad")
+            ->queryAll();
+    return $this->getReportes;
+}
+//conseguir un solo reporte
+/*public function getUnReporte($id){
+        $this->getUnReporte=$this->connection->createCommand()
+                 ->select("*")->from('reportes')
+                  ->where("id_reporte=$id")->queryAll();
+        return $this->getUnReporte;
+    }
+
+//Método para modificar usuarios
+    public function mod($id,$produccion,$descripcion,$fecha_reporte){
+        $update=$this->connection->createCommand()->
+                update("reportes",array(
+                   "produccion"=>$produccion,
+                   "descripcion"=>$descripcion,
+                   "fecha_reporte"=>$fecha_reporte,
+                  
+                ),"id_reporte=$id");
+        return $update;
+    }*/
+
+     	
 	
 }

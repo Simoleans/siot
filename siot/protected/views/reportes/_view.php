@@ -123,9 +123,13 @@
 						</tr>				
 					</table>
 				</div>
+				
+
 			</div>
 		
 		</div>
 		<br>
+
+		
 	<?php } ?>
 

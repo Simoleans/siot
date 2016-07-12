@@ -9,10 +9,6 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection">
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print">
 
-	<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection">
-	<![endif]-->
-
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css">
 	<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/Highcharts/jquery.js"></script>
@@ -29,10 +25,12 @@
   		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/assets/datapicker/jquery-ui.theme.min.css">
   		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/datapicker/jquery-ui.js"></script>
   		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/datapicker/jquery-ui.min.js"></script>
+  		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/datapicker/APIcalendario.js"></script>
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/Highcharts/js/highcharts.js"></script>
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/Highcharts/js/modules/data.js"></script>
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/Highcharts/js/modules/drilldown.js"></script>
-		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/Highcharts/js/modules/exporting.js"></script>
+		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/Highcharts/js/modules/exporting.js"></script>S
+
 </head>
 
 <body>
