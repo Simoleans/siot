@@ -3,45 +3,6 @@
 
 $this->pageTitle=Yii::app()->name;
 ?>
-      <?php $usuario = Yii::app()->user->getId();?>   
-      <?php $result = Yii::app()->db->createCommand("SELECT razon_social,nombre_planta,nombre,apellido FROM empresa
-                              INNER JOIN plantas ON empresa.id_empresa=plantas.empresa_id
-                              INNER JOIN usuarios ON empresa.id_empresa=usuarios.empresa_id
-                              AND plantas.id_planta=usuarios.planta_id
-                              WHERE id_usuario = '".$usuario."' LIMIT 1")->queryAll();
-        $contar = count($result);
-        foreach ($result as $r) {
-          $empresa = $r["razon_social"];
-          $planta = $r["nombre_planta"];
-          $nombre = $r["nombre"];
-          $apellido = $r["apellido"];
-        }
-      ?>  
-      <?php if($contar>0) {?>
-        <?php
-          $admin = "<b>ADMINISTRADOR </b>"."<b style='text-transform:uppercase; color:#8E1010;'>".$nombre."&nbsp;".$apellido."</b>"."<b> EMPRESA </b>"."<b style='text-transform:uppercase;color:#8E1010;'>".$empresa."</b>"."<b> PLANTA </b>"."<b style='text-transform:uppercase;color:#8E1010;'>".$planta."</b>";
-
-          $admine = "<b>ADMINISTRADOR DE EMPRESA </b>"."<b style='text-transform:uppercase; color:#8E1010;'>".$nombre."&nbsp;".$apellido."</b>"."<b> EMPRESA </b>"."<b style='text-transform:uppercase;color:#8E1010;'>".$empresa."</b>"."<b> PLANTA </b>"."<b style='text-transform:uppercase;color:#8E1010;'>".$planta."</b>";
-
-          $analista = "<b>ANALISTA </b>"."<b style='text-transform:uppercase; color:#8E1010;'>".$nombre."&nbsp;".$apellido."</b>"."<b> EMPRESA </b>"."<b style='text-transform:uppercase;color:#8E1010;'>".$empresa."</b>"."<b> PLANTA </b>"."<b style='text-transform:uppercase;color:#8E1010;'>".$planta."</b>";
-
-          $seguimiento = "<b>SEGUIDOR DE PRODUCCION  </b>"."<b style='text-transform:uppercase; color:#8E1010;'>".$nombre."&nbsp;".$apellido."</b>"."<b> EMPRESA </b>"."<b style='text-transform:uppercase;color:#8E1010;'>".$empresa."</b>"."<b> PLANTA </b>"."<b style='text-transform:uppercase;color:#8E1010;'>".$planta."</b>";
-
-          $bd = "<b>ADMINISTRADOR DE LA BD </b>"."<b style='text-transform:uppercase; color:#8E1010;'>".$nombre."&nbsp;".$apellido."</b>"."<b> EMPRESA </b>"."<b style='text-transform:uppercase;color:#8E1010;'>".$empresa."</b>"."<b> PLANTA </b>"."<b style='text-transform:uppercase;color:#8E1010;'>".$planta."</b>";
-        ?>
-        <div class='alert alert-success alert-dismissible' role='alert'   align='center'>
-          <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-            <span aria-hidden='true'>&times;</span>
-          </button>
-          <?php 
-            if(Yii::app()->user->getState('roles') =='1'){echo "<p align='center'><i class='fa fa-user' aria-hidden='true'></i> $admin</p>";}
-            if(Yii::app()->user->getState('roles') =='2'){echo "<p align='center'><i class='fa fa-user' aria-hidden='true'></i> $admine</p>";}
-            if(Yii::app()->user->getState('roles') =='3'){echo "<p align='center'><i class='fa fa-user' aria-hidden='true'></i> $analista</p>";}
-            if(Yii::app()->user->getState('roles') =='4'){echo "<p align='center'><i class='fa fa-user' aria-hidden='true'></i> $seguimiento</p>";}
-            if(Yii::app()->user->getState('roles') =='5'){echo "<p align='center'><i class='fa fa-user' aria-hidden='true'></i> $bd</p>";}
-          ?>
-        </div>
-      <?php }?>
 
 <span class="ez" align="center">Bienvenidos al <?php echo CHtml::encode(Yii::app()->name); ?></span>
 

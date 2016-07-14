@@ -28,12 +28,12 @@ if ( empty($tablas) ) {
     }
 }
 /* Se crea la cabecera del archivo */
-
+date_default_timezone_set("America/Caracas");
 $info['fecha'] = date("d-m-Y");
 $info['hora'] = date("h:m:s A");
 $info['mysqlver'] = mysql_get_server_info();
 $info['phpver'] = phpversion();
-ob_start();
+/*ob_start();*/ // 
 print_r($tablas);
 $representacion = ob_get_contents();
 ob_end_clean ();

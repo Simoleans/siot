@@ -12,7 +12,8 @@ INNER JOIN plantas AS pl ON u.planta_id=pl.id_planta INNER JOIN empresa AS e ON 
 <?php foreach ($result as $usu) { ?>
 	
 <?php if($usu['nombre_perfil']=="ADM. EMPRESA"){$perfil="Administrador de empresa";}else{$perfil=$usu['nombre_perfil'];} ?>
-<?php if($usu['id_perfil']=="1"){$msg="El usuario ADMINISTRADOR DEBE PERTENECER A UNA EMPRESA, PERO NO A UNA PLANTA";} ?>
+<?php if($usu['id_perfil']=="1"){$msg="El usuario ADMINISTRADOR DEBE PERTENECER A UNA EMPRESA , PERO NO A UNA PLANTA";} ?>
+<div class="table-responsive">
 <table border="4">
 
 	<thead>
@@ -40,6 +41,7 @@ INNER JOIN plantas AS pl ON u.planta_id=pl.id_planta INNER JOIN empresa AS e ON 
 	</tbody>
 
 </table>
+</div>
 
 <br>
 

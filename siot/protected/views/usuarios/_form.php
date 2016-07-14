@@ -1,3 +1,5 @@
+<?php require_once('APIcalendario.php');?>
+
 <?php $form=$this->beginWidget('booster.widgets.TbActiveForm',array(
 	'id'=>'usuarios-form',
 	'enableAjaxValidation'=>false,

@@ -4,7 +4,7 @@
 class BDController extends Controller
 {
 	
-	public $layout='//layouts/column2';
+	
 	public function filters()
 	{
 		return array(
@@ -87,10 +87,14 @@ public function actionCreate()
             $this->layout='//layouts/column1';
         }
         $model=new Reportes;
+        date_default_timezone_set("America/Caracas");
+        $model->fecha_reporte=date('Y-m-d');
+       
 
         if(isset($_POST['Reportes']))
         {
             $model->attributes=$_POST['Reportes'];
+
                 if($model->save())
                     Yii::app()->user->setFlash('notice', "Se registro el reporte satisfactoriamente");
                 $this->redirect(array('index'));
@@ -159,9 +163,17 @@ public function actionUpdate($id) {
 
     public function actionRespaldar()
     {
+
+         if (Yii::app()->user->getState('roles') == '5') 
+        { 
+            $this->layout='//layouts/column1';
+            
+        }
         
     $this->render('respaldar');
      
     }
+
+
 
 }

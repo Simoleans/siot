@@ -1,4 +1,5 @@
 <div>
+
 	<?php $empresa = CHtml::encode($data->razon_social);?> 
 		
 	<?php if ($empresa != 'TODAS') { ?>

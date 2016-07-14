@@ -105,10 +105,6 @@ class PlantasController extends Controller
 		if(isset($_POST['Plantas']))
 		{
 			$model->attributes=$_POST['Plantas'];
-			if($model->cant_empleados<10){
-				Yii::app()->user->setFlash('error', "La cantidad de empleados minima para una planta debe ser  10");
-                $this->redirect(array('create'));
-			}
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_planta));
 		}

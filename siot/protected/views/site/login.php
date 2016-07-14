@@ -3,6 +3,9 @@
 /* @var $model LoginForm */
 /* @var $form CActiveForm  */
 
+ $login = Yii::app()->user->isGuest; // para validar que el usuario esta en sesion
+
+ if($login){
 $this->pageTitle=Yii::app()->name . ' - Iniciar Sesión';
 $this->breadcrumbs=array(
 	'Iniciar Sesión',
@@ -90,3 +93,6 @@ $this->breadcrumbs=array(
 			</div><br><br>
 		</div>
 	</div>
+
+	<?php }else{ 
+		require_once('index.php'); }?>

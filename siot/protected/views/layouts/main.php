@@ -25,7 +25,6 @@
   		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/assets/datapicker/jquery-ui.theme.min.css">
   		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/datapicker/jquery-ui.js"></script>
   		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/datapicker/jquery-ui.min.js"></script>
-  		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/datapicker/APIcalendario.js"></script>
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/Highcharts/js/highcharts.js"></script>
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/Highcharts/js/modules/data.js"></script>
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/Highcharts/js/modules/drilldown.js"></script>

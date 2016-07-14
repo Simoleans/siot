@@ -17,6 +17,7 @@
 ?>
 <!--ANTES DE MOSTRAR CUALQUIER COSA PREGUNTO SI HAY PRODUCCION--> 
 <?php if (isset($toneladas)) { ?>
+  <?php require_once('HC/APIcalendario.php');?>
   <span class="ez col-xs-12">
     <table class="table-striped pull-left">
       <tr>

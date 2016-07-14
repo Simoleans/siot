@@ -9,10 +9,17 @@ $(document).ready(function() {
 
 </script>
 
+<?php /*$results1 = Yii::app()->db->createCommand("SELECT * FROM reportes AS re 
+    where fecha_reporte = (SELECT Max(fecha_reporte) FROM reportes WHERE fecha_reporte = fecha_reporte)")->queryAll();*/ ?>
+
+
+
 <h1>REPORTES</h1>
 <a  class="btn btn-danger pull-left" href="<?=Yii::app()->request->baseUrl?>/bd/create">Crear Reporte</a>
 <br>
 <br>
+
+
 <?php //'success'  'error'  'notice'            
         $flashMessages = Yii::app()->user->getFlashes();
         if ($flashMessages) {   
@@ -101,5 +108,8 @@ $this->widget(
     )
 );
 ?>
+
+
+
 
 

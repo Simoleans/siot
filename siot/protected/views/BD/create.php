@@ -1,8 +1,22 @@
+<?php require_once('APIcalendario.php');?>
+
 <?php $form=$this->beginWidget('booster.widgets.TbActiveForm',array(
 	'id'=>'reportes-form',
 	'enableAjaxValidation'=>false,
 )); ?>
 
+
+<?php //'success'  'error'  'notice'            
+        $flashMessages = Yii::app()->user->getFlashes();
+        if ($flashMessages) {   
+                foreach($flashMessages as $key => $message) {
+                        echo '<h3><div class="flash-' . $key . '" style="color:red; text-align:center">' . $message . "</div></h3>\n";
+                                
+                    
+                        
+                }
+        }
+                ?>
 	<p class="note">Campos con <span class="required">*</span> son requeridos.</p>
 	<br>
 	
@@ -10,7 +24,7 @@
 
 	<?php echo $form->errorSummary($model); ?>
 	
-	<div class="row">
+	<div class="row" style="padding-left: 5%">
 		<div class="col-md-4">
 			<div class="form-group">	
 				<?php echo $form->labelEx($model,'producto_id'); ?>
@@ -29,7 +43,7 @@
 
 		<div class="col-md-6">
 			<div class="form-group">	
-				<?php echo $form->labelEx($model,'usuario_id'); ?>
+				<?php echo $form->labelEx($model,'usuario_id'); ?> 
 				<?php echo $form->dropDownList(
 					$model,
 					'usuario_id',
@@ -60,22 +74,23 @@
 		</div>
 		<div class="col-md-3">
 			<div class="form-group">	
-				<?php echo $form->labelEx($model,'fecha_reporte'); ?>
+				<?php echo $form->labelEx($model,'fecha_reporte'); ?> <span class="required">*</span>
 				<?php echo $form->textField(
 					$model,
 					'fecha_reporte',
 					array(
 						'maxlength'=>50,
 						'class'=>'form-control',
-						'id' => 'fecha_nac',
+						
 						)
 				); ?> 
 				
 			</div>
 		</div>
+
 	</div>
 
-	<div class="row">
+	<div class="row" style="padding-left: 5%">
 		<div class="col-md-9">
 			<div class="form-group">	
 				<?php echo $form->labelEx($model,'Observacion'); ?>
@@ -93,11 +108,11 @@
 		</div>
 	</div>	
 
-	<?php echo $form->hiddenField($model,'fecha_reporte'); ?>
+	
 
 	<hr>
 
-	<div class="form-actions">
+	<div class="form-actions" style="padding-left: 5%">
 		<?php echo CHtml::submitButton("Guardar",array("class"=>"btn btn-success"));?>
 	</div>
 
