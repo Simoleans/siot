@@ -1,0 +1,8 @@
+<div class='alert alert-danger alert-dismissible' role='alert'   align='center' style="margin-bottom:0">
+   <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+	  <span aria-hidden='true'>&times;</span>
+	</button>
+	  <b class='badge'><?php echo $contar;?></b> 
+	  <b>Resultados Encontrados Para</b>
+	  <b style='color:#A32121; text-transform: uppercase;'><?php echo "$region en $newdate del $año";?></b>!
+</div>
