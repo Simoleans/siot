@@ -4,7 +4,7 @@
     $nombre = $model->nombre_producto;
   //consulta para traerme la produccion por producto mediante el id sociado a la tabla reportes
 
-$pdf = Yii::createComponent('application.extensions.MPDF.mpdf');
+$pdf = Yii::createComponent('application.extensions.mpdf.mpdf');
 $html='<h3 style="text-align:center;">Reporte '.$nombre.'</h3>
 <table cellspacing="0" width="100%"  border="1" class="table">
 <thead>
