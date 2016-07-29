@@ -53,7 +53,7 @@ date_default_timezone_set("America/Caracas");
         </td>
       </tr>
     </table>
-      <?php require_once('FiltroFecha.php');?>
+      <?php require_once('filtroFecha.php');?>
   </span>
     <?php //--->SI HAY PRODUCCION PREGUNTO SI EL BOTON FUE CLICKEADO<----//
             if (isset($_POST['buscar'])) { ?>
