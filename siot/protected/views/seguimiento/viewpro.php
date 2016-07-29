@@ -12,7 +12,7 @@ $this->breadcrumbs=array(
     'attributes'=>array(),
 )); ?>
 
-<?php $this->renderPartial('Partials/_contenidopro', array('model'=>$model)); ?>
+<?php $this->renderPartial('partials/_contenidopro', array('model'=>$model)); ?>
 
 
 
